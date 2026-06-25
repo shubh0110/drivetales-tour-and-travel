@@ -200,7 +200,10 @@ body::after {
 
 .h1 { color: var(--white); font-size: var(--fs-1); }
 .h2, .h3 { color: var(--gunmetal); }
-.h2 { font-size: var(--fs-2); }
+.h2 { 
+  font-size: var(--fs-2);
+  color: var(--bright-navy-blue);
+ }
 .h3 { font-size: var(--fs-3); font-weight: var(--fw-700); }
 
 .section-subtitle {
@@ -211,7 +214,24 @@ body::after {
   margin-bottom: 8px;
 }
 
-.section-title { margin-bottom: 20%; }
+/* Mobile */
+.section-title {
+  margin-bottom: 20%;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .section-title {
+    margin-bottom: 2%;
+  }
+}
+
+/* Laptop & Desktop */
+@media (min-width: 992px) {
+  .section-title {
+    margin-bottom: 2%;
+  }
+}
 
 .section-text {
   color: var(--black-coral);
@@ -407,7 +427,7 @@ body::after {
 \*-----------------------------------*/
 
 .fleet {
-  padding-top: clamp(80px, 14vw, 200px);      /* was 120px min — too much on mobile */
+  padding-top: clamp(80px, 5vw, 200px);      /* was 120px min — too much on mobile */
   padding-bottom: var(--section-padding);
   overflow: visible;
 }
