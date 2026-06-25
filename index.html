@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveTales Tour & Travel</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!--
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="header-bottom">
+      <div class="container">
+
+        <!-- Logo -->
+        <a href="#home" class="logo">
+          <img src="./assets/images/logo.svg" alt="DriveTales Tours & Travels">
+        </a>
+
+        <!-- Desktop + Mobile Navigation -->
+        <nav class="navbar" data-navbar>
+
+          <!-- Mobile nav header -->
+          <div class="navbar-top">
+            <a href="#" class="logo">
+              <img src="./assets/images/logo.svg" alt="DriveTales Logo">
+            </a>
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+          </div>
+
+          <ul class="navbar-list">
+            <li><a href="#home"    class="navbar-link" data-nav-link>Home</a></li>
+            <li><a href="#about"   class="navbar-link" data-nav-link>About Us</a></li>
+            <li><a href="#cars"    class="navbar-link" data-nav-link>Cars</a></li>
+            <li><a href="#buses"   class="navbar-link" data-nav-link>Buses</a></li>
+            <li><a href="#contact" class="navbar-link" data-nav-link>Contact Us</a></li>
+          </ul>
+
+        </nav>
+
+        <!-- Mobile hamburger -->
+        <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Overlay for mobile nav -->
+  <div class="overlay" data-overlay></div>
+
+
+  <main>
+    <article>
+
+      <!--
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <video autoplay muted loop playsinline class="hero-video">
+          <source src="./assets/videos/travel-video.mp4" type="video/mp4">
+        </video>
+
+        <div class="container">
+          <h2 class="h1 hero-title">Journey to explore world</h2>
+
+          <p class="hero-text">
+            Explore amazing destinations with DriveTales.
+          </p>
+
+          <div class="btn-group">
+            <a href="#cars"    class="btn btn-primary">Explore Cars</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!--
+        - #CARS FLEET
+      -->
+
+      <section class="fleet" id="cars">
+        <div class="container">
+
+          <p class="section-subtitle" style="text-align:center;">Our Fleet</p>
+          <h2 class="h2 section-title" style="text-align:center; color:#fff;">Choose Your Ride</h2>
+
+          <div class="fleet-grid">
+
+            <!-- Sedan -->
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <div class="car-circle">
+                  <img src="./assets/images/car.png" alt="Sedan Car">
+                </div>
+              </div>
+              <div class="fleet-content">
+                <h3>Sedan</h3>
+                <p>Comfortable and stylish sedan cars for city rides and business travel.</p>
+                <a href="#" class="btn btn-primary">Explore</a>
+              </div>
+            </div>
+
+            <!-- SUV -->
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <div class="car-circle">
+                  <img src="./assets/images/car1.png" alt="SUV">
+                </div>
+              </div>
+              <div class="fleet-content">
+                <h3>SUV</h3>
+                <p>Spacious SUVs perfect for family trips and outstation travel.</p>
+                <a href="#" class="btn btn-primary">Explore</a>
+              </div>
+            </div>
+
+            <!-- Luxury -->
+            <div class="fleet-card">
+              <div class="fleet-image">
+                <div class="car-circle">
+                  <img src="./assets/images/car.png" alt="Luxury Car">
+                </div>
+              </div>
+              <div class="fleet-content">
+                <h3>Luxury</h3>
+                <p>Premium luxury vehicles for weddings, VIP travel and corporate events.</p>
+                <a href="#" class="btn btn-primary">Explore</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!--
+        - #BUSES FLEET
+      -->
+
+      <section class="fleet" id="buses">
+        <div class="container">
+
+          <p class="section-subtitle" style="text-align:center;">Group Travel</p>
+          <h2 class="h2 section-title" style="text-align:center; color:#fff;">Our Bus Fleet</h2>
+
+          <div class="fleet-grid" style="grid-template-columns:1fr; padding-top:0; gap:0;">
+
+            <div class="fleet-card" style="display:flex; flex-wrap:wrap; align-items:center; gap:clamp(20px,4vw,40px); text-align:left; padding:clamp(28px,4vw,50px);">
+
+              <div class="fleet-content" style="flex:1 1 240px; min-width:0;">
+                <span class="fleet-icon">🚌</span>
+                <h3 style="font-size:clamp(24px,4vw,42px);">Buses</h3>
+                <p style="font-size:clamp(14px,1.8vw,18px);">
+                  Mini Buses, Luxury Coaches and Tourist Buses for family tours,
+                  school trips, corporate travel and group tours.
+                </p>
+                <a href="#" class="btn btn-primary" style="display:inline-block; width:auto; padding:14px 32px;">Explore Buses</a>
+              </div>
+
+              <div style="flex:1 1 220px; min-width:0; text-align:center;">
+                <img src="./assets/images/bus.png" alt="Bus" style="width:100%; max-width:420px; height:auto;">
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!--
+        - #GALLERY
+      -->
+
+      <section class="gallery" id="gallery">
+        <div class="container">
+
+          <p class="section-subtitle">Photo Gallery</p>
+          <h2 class="h2 section-title" style="color:#fff;">Photos From Travellers</h2>
+
+          <p class="section-text" style="color:rgba(255,255,255,.75);">
+            Memories captured across every journey — from mountain roads to coastal drives.
+          </p>
+
+          <ul class="gallery-list">
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/gallery-1.jpg" alt="Travel gallery image 1">
+              </figure>
+            </li>
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/gallery-2.jpg" alt="Travel gallery image 2">
+              </figure>
+            </li>
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/gallery-3.jpg" alt="Travel gallery image 3">
+              </figure>
+            </li>
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/gallery-4.jpg" alt="Travel gallery image 4">
+              </figure>
+            </li>
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/gallery-5.jpg" alt="Travel gallery image 5">
+              </figure>
+            </li>
+          </ul>
+
+        </div>
+      </section>
+
+
+      <!--
+        - #CTA
+      -->
+
+      <section class="cta" id="contact">
+        <div class="container">
+
+          <div class="cta-content">
+            <p class="section-subtitle">Call To Action</p>
+            <h2 class="h2 section-title">Ready For Unforgettable Travel. Remember Us!</h2>
+            <p class="section-text">
+              Whether it's a weekend getaway or a cross-country expedition, DriveTales is your
+              trusted travel partner — anytime, anywhere.
+            </p>
+          </div>
+
+          <a href="tel:+918433596248" class="btn btn-secondary" style="white-space:nowrap;">Call Us Now</a>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+  <!--
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" alt="DriveTales Logo">
+          </a>
+          <p class="footer-text">
+            DriveTales Tours & Travels is your trusted travel partner for unforgettable journeys,
+            customised tour packages, hotel bookings, transportation, and holiday experiences
+            across India and beyond.
+          </p>
+        </div>
+
+        <div class="footer-contact">
+          <h4 class="contact-title">Contact Us</h4>
+          <ul>
+
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+              <div>
+                <a href="tel:+918433596248" class="contact-link">+91 84335 96248</a>
+                <a href="tel:+917208325927" class="contact-link">+91 72083 25927</a>
+              </div>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+              <address>
+                L1, L2, L3, Vikas Udyog Nagar,<br>
+                Hanuman Nagar, Fatak Road,<br>
+                Bhayandar East, Mumbai – 401105
+              </address>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+              <a href="mailto:info@drivetales.in" class="contact-link">info@drivetales.in</a>
+            </li>
+
+          </ul>
+        </div>
+
+        <div class="footer-form">
+          <h4 class="contact-title">Why Choose DriveTales?</h4>
+          <p class="form-text">
+            ✓ Customised Tour Packages<br>
+            ✓ Affordable Pricing<br>
+            ✓ Trusted Travel Assistance<br>
+            ✓ Comfortable Transportation<br>
+            ✓ 24×7 Customer Support
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">&copy; 2026 DriveTales Tours & Travels. All rights reserved.</p>
+
+        <ul class="footer-bottom-list">
+          <li><a href="#" class="footer-bottom-link">Privacy Policy</a></li>
+          <li><a href="#" class="footer-bottom-link">Terms & Conditions</a></li>
+          <li><a href="#" class="footer-bottom-link">FAQ</a></li>
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!--
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top aria-label="Back to top">
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+
+  <!--
+    - #SCRIPTS
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Robust mobile nav + header scroll fallback -->
+  <script>
+    (function () {
+      const header      = document.querySelector('[data-header]');
+      const navOpenBtn  = document.querySelector('[data-nav-open-btn]');
+      const navCloseBtn = document.querySelector('[data-nav-close-btn]');
+      const navbar      = document.querySelector('[data-navbar]');
+      const overlay     = document.querySelector('[data-overlay]');
+      const goTop       = document.querySelector('[data-go-top]');
+      const navLinks    = document.querySelectorAll('[data-nav-link]');
+
+      function openNav() {
+        navbar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; /* prevent page scroll behind drawer */
+      }
+
+      function closeNav() {
+        navbar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (navOpenBtn)  navOpenBtn.addEventListener('click', openNav);
+      if (navCloseBtn) navCloseBtn.addEventListener('click', closeNav);
+      if (overlay)     overlay.addEventListener('click', closeNav);
+
+      /* Close nav when a link is tapped (mobile) */
+      navLinks.forEach(function (link) {
+        link.addEventListener('click', closeNav);
+      });
+
+      /* Header active + go-top on scroll */
+      window.addEventListener('scroll', function () {
+        var scrollY = window.scrollY || window.pageYOffset;
+
+        if (header) {
+          if (scrollY > 50) {
+            header.classList.add('active');
+          } else {
+            header.classList.remove('active');
+          }
+        }
+
+        if (goTop) {
+          if (scrollY > 300) {
+            goTop.classList.add('active');
+          } else {
+            goTop.classList.remove('active');
+          }
+        }
+      });
+    })();
+  </script>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
