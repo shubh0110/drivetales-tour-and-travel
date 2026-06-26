@@ -12,7 +12,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 </head>
 
 <body id="top">
@@ -44,10 +46,10 @@
           </div>
 
           <ul class="navbar-list">
-            <li><a href="#home"    class="navbar-link" data-nav-link>Home</a></li>
-            <li><a href="#about"   class="navbar-link" data-nav-link>About Us</a></li>
-            <li><a href="#cars"    class="navbar-link" data-nav-link>Cars</a></li>
-            <li><a href="#buses"   class="navbar-link" data-nav-link>Buses</a></li>
+            <li><a href="#home" class="navbar-link" data-nav-link>Home</a></li>
+            <li><a href="#about" class="navbar-link" data-nav-link>About Us</a></li>
+            <li><a href="#cars" class="navbar-link" data-nav-link>Cars</a></li>
+            <li><a href="#buses" class="navbar-link" data-nav-link>Buses</a></li>
             <li><a href="#contact" class="navbar-link" data-nav-link>Contact Us</a></li>
           </ul>
 
@@ -86,7 +88,7 @@
           </p>
 
           <div class="btn-group">
-            <a href="#cars"    class="btn btn-primary">Explore Cars</a>
+            <a href="#cars" class="btn btn-primary">Explore Cars</a>
             <a href="#contact" class="btn btn-secondary">Contact Us</a>
           </div>
         </div>
@@ -97,59 +99,7 @@
         - #CARS FLEET
       -->
 
-      <section class="fleet" id="cars">
-        <div class="container">
-
-          <h2 class="h2 section-title" style="text-align:center;">Travel in Comfort</h2>
-          <p class="section-subtitle" style="text-align:center; color:#fff;">Choose from our well-maintained fleet of sedans, SUVs, and luxury vehicles for every journey.</p>
-
-          <div class="fleet-grid">
-
-            <!-- Sedan -->
-            <div class="fleet-card">
-              <div class="fleet-image">
-                <div class="car-circle">
-                  <img src="./assets/images/car.png" alt="Sedan Car">
-                </div>
-              </div>
-              <div class="fleet-content">
-                <h3>Sedan</h3>
-                <p>Comfortable and stylish sedan cars for city rides and business travel.</p>
-                <a href="#" class="btn btn-primary">Explore</a>
-              </div>
-            </div>
-
-            <!-- SUV -->
-            <div class="fleet-card">
-              <div class="fleet-image">
-                <div class="car-circle">
-                  <img src="./assets/images/car1.png" alt="SUV">
-                </div>
-              </div>
-              <div class="fleet-content">
-                <h3>SUV</h3>
-                <p>Spacious SUVs perfect for family trips and outstation travel.</p>
-                <a href="#" class="btn btn-primary">Explore</a>
-              </div>
-            </div>
-
-            <!-- Luxury -->
-            <div class="fleet-card">
-              <div class="fleet-image">
-                <div class="car-circle">
-                  <img src="./assets/images/car.png" alt="Luxury Car">
-                </div>
-              </div>
-              <div class="fleet-content">
-                <h3>Luxury</h3>
-                <p>Premium luxury vehicles for weddings, VIP travel and corporate events.</p>
-                <a href="#" class="btn btn-primary">Explore</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <div id="fleet-section"></div>
 
 
       <!--
@@ -164,7 +114,8 @@
 
           <div class="fleet-grid" style="grid-template-columns:1fr; padding-top:0; gap:0;">
 
-            <div class="fleet-card" style="display:flex; flex-wrap:wrap; align-items:center; gap:clamp(20px,4vw,40px); text-align:left; padding:clamp(28px,4vw,50px);">
+            <div class="fleet-card"
+              style="display:flex; flex-wrap:wrap; align-items:center; gap:clamp(20px,4vw,40px); text-align:left; padding:clamp(28px,4vw,50px);">
 
               <div class="fleet-content" style="flex:1 1 240px; min-width:0;">
                 <span class="fleet-icon">🚌</span>
@@ -173,7 +124,8 @@
                   Mini Buses, Luxury Coaches and Tourist Buses for family tours,
                   school trips, corporate travel and group tours.
                 </p>
-                <a href="#" class="btn btn-primary" style="display:inline-block; width:auto; padding:14px 32px;">Explore Buses</a>
+                <a href="#" class="btn btn-primary" style="display:inline-block; width:auto; padding:14px 32px;">Explore
+                  Buses</a>
               </div>
 
               <div style="flex:1 1 220px; min-width:0; text-align:center;">
@@ -351,17 +303,18 @@
     - #SCRIPTS
   -->
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/components.js"></script>
 
   <!-- Robust mobile nav + header scroll fallback -->
   <script>
     (function () {
-      const header      = document.querySelector('[data-header]');
-      const navOpenBtn  = document.querySelector('[data-nav-open-btn]');
+      const header = document.querySelector('[data-header]');
+      const navOpenBtn = document.querySelector('[data-nav-open-btn]');
       const navCloseBtn = document.querySelector('[data-nav-close-btn]');
-      const navbar      = document.querySelector('[data-navbar]');
-      const overlay     = document.querySelector('[data-overlay]');
-      const goTop       = document.querySelector('[data-go-top]');
-      const navLinks    = document.querySelectorAll('[data-nav-link]');
+      const navbar = document.querySelector('[data-navbar]');
+      const overlay = document.querySelector('[data-overlay]');
+      const goTop = document.querySelector('[data-go-top]');
+      const navLinks = document.querySelectorAll('[data-nav-link]');
 
       function openNav() {
         navbar.classList.add('active');
@@ -375,9 +328,9 @@
         document.body.style.overflow = '';
       }
 
-      if (navOpenBtn)  navOpenBtn.addEventListener('click', openNav);
+      if (navOpenBtn) navOpenBtn.addEventListener('click', openNav);
       if (navCloseBtn) navCloseBtn.addEventListener('click', closeNav);
-      if (overlay)     overlay.addEventListener('click', closeNav);
+      if (overlay) overlay.addEventListener('click', closeNav);
 
       /* Close nav when a link is tapped (mobile) */
       navLinks.forEach(function (link) {
@@ -411,4 +364,5 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
+
 </html>

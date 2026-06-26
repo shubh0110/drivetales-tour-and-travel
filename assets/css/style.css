@@ -422,146 +422,338 @@ body::after {
   margin-top: 28px;
 }
 
+
 /*-----------------------------------*\
- * #FLEET (Cars & Buses)
+ * #FLEET — RESPONSIVE (Phone + Desktop)
 \*-----------------------------------*/
 
 .fleet {
-  padding-top: clamp(80px, 5vw, 200px);      /* was 120px min — too much on mobile */
+  padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
   overflow: visible;
 }
 
-/* ── Cars Grid ── */
 .fleet-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(120px, 14vw, 140px);             /* enough gap for floating circle */
-  padding-top: clamp(70px, 12vw, 110px);      /* space for first card's circle */
+  gap: clamp(14px, 3vw, 20px);
+  padding-top: clamp(20px, 4vw, 40px);
 }
 
+/* ── BREAKPOINTS ── */
+
+/* Phone (< 600px): 1-col, horizontal card */
+@media (max-width: 599px) {
+
+  .fleet-card{
+    flex-direction: row;
+    min-height: 140px;
+    overflow: visible;
+  }
+
+  .fleet-image{
+    position: relative;
+    width: 120px;
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .fleet-image img{
+    width: 110px;
+    position: absolute;
+    transform: translateY(-10%);
+    z-index: 10;
+  }
+
+  .fleet-card:hover .fleet-image img{
+    transform: translateY(-50%) scale(3.08);
+  }
+
+  .fleet-content{
+    flex: 1;
+    padding: 16px 18px 16px 35px;
+  }
+
+}
+
+/* Tablet (600–899px): 1-col, horizontal card, roomier */
+@media (min-width: 600px) and (max-width: 899px) {
+  .fleet-grid { grid-template-columns: 1fr; }
+
+  .fleet-card {
+    flex-direction: row;
+    min-height: 160px;
+  }
+  .fleet-image {
+    width: 160px;
+    flex-shrink: 0;
+  }
+  .fleet-image img { width: 120px; }
+  .fleet-content { padding: 16px 20px; }
+}
+
+/* Desktop (≥ 900px): 3-col, vertical card */
+@media (min-width:900px){
+
+  .fleet-grid{
+      grid-template-columns:repeat(3,1fr);
+  }
+
+  .fleet-card{
+      flex-direction:column;
+      min-height:380px;
+  }
+
+  .fleet-image{
+      position:relative;
+      width:100%;
+      height:170px;
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      overflow:visible;
+      z-index:20;
+  }
+
+  .fleet-image::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-1px;
+    height:28px;
+    background:inherit;
+    clip-path:polygon(0 0,100% 0,100% 100%,0 82%);
+    z-index:1;
+}
+
+  .fleet-image img{
+      position:absolute;
+      width:180px;
+      bottom:-15px;  
+      transform:translateX(-50%) rotate(-8deg);
+      transition:all .45s cubic-bezier(.34,1.56,.64,1);
+      z-index:30;
+  }
+
+  .fleet-content{
+      padding:55px 20px 22px;
+  }
+
+}
+
+/* ── CARD BASE ── */
 .fleet-card {
+  display: flex;
   position: relative;
-  padding: clamp(100px, 18vw, 160px) clamp(18px, 4vw, 40px) clamp(28px, 5vw, 45px);
-  border-radius: 40px;
-  text-align: center;
-  overflow: visible;
-  background: rgba(255,255,255,.95);
-  backdrop-filter: blur(20px);
-  box-shadow: 0 25px 60px rgba(0,0,0,.12);
-  transition: 0.45s;
+  background: rgba(255,255,255,.96);
+  border-radius: 20px;
+  overflow: hidden; /* changed */
+  box-shadow: 0 10px 35px rgba(0,0,0,.18);
+  transition: transform .4s ease, box-shadow .4s ease;
 }
 
-.fleet-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 35px 80px rgba(0,0,0,.18);
+.fleet-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 25px 55px rgba(0,0,0,.25);
 }
 
+/* ── ACCENT BAR ──
+   Left bar on mobile/tablet, top bar on desktop */
 .fleet-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 40px;
-  padding: 2px;
-  background: linear-gradient(135deg, #feb512, #4da3ff, #0d5cff);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: 0.4s;
+  z-index: 2;
 }
-.fleet-card:hover::before { opacity: 1; }
 
-/* Floating image above card */
+@media (max-width: 899px) {
+  .fleet-card::before {
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    border-radius: 20px 0 0 20px;
+  }
+}
+
+@media (min-width: 900px) {
+  .fleet-card::before {
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* ── IMAGE PANEL ── */
 .fleet-image {
-  position: absolute;
-  top: clamp(-85px, -13vw, -110px);          /* was -100px floor, circle was clipping */
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.car-circle {
-  width: clamp(120px, 30vw, 220px);          /* was 160px floor — too wide on mobile */
-  height: clamp(120px, 30vw, 220px);
-  border-radius: 50%;
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: #feb512;
-  box-shadow: 0 20px 60px rgba(254,181,18,.45);
-  transition: 0.4s;
+  justify-content: center;
+  overflow: visible;
 }
 
-.car-circle img {
-  width: clamp(90px, 24vw, 200px);           /* was 120px floor — scaled to circle */
-  transition: 0.45s;
+.fleet-image img {
+  height:auto;
+  filter:drop-shadow(0 15px 28px rgba(0,0,0,.35));
+  transition:all .45s cubic-bezier(.34,1.56,.64,1);
+  transform: rotate(-5deg) translateY(-10px);
+  transform-origin: center bottom;
+  position: relative;
+  z-index: 1; 
 }
 
-.fleet-card:hover .car-circle { transform: rotate(-5deg); }
-.fleet-card:hover .car-circle img { transform: translateY(-8px) scale(1.08); }
+@media (min-width: 900px) {
+  .fleet-card:hover .fleet-image img {
+    transform:
+      translateX(-50%)
+      translateY(-38px)
+      scale(1.18)
+      rotate(-2deg);
+
+    filter: drop-shadow(0 28px 45px rgba(0,0,0,.45));
+  }
+}
+
+@media (max-width: 899px) {
+  .fleet-card:hover .fleet-image img {
+    transform:
+      translateY(-8px)
+      scale(1.08)
+      rotate(-2deg);
+
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,.35));
+  }
+}
+
+/* Angled separator — side on mobile, bottom on desktop */
+.fleet-image::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+}
+
+@media (max-width: 899px) {
+  .fleet-image::after {
+    right: -1px; top: 0; bottom: 0;
+    width: clamp(20px, 4vw, 30px);
+    clip-path: polygon(0 0, 100% 8%, 100% 92%, 0 100%);
+  }
+}
+
+@media (min-width: 900px) {
+  .fleet-image::after {
+    left: 0; right: 0; bottom: -1px;
+    height: clamp(20px, 4vw, 30px);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  }
+}
+
+/* ── CONTENT BODY ── */
+.fleet-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: clamp(4px, 1vw, 8px);
+  padding: clamp(14px, 2.5vw, 22px);
+}
 
 .fleet-content h3 {
-  font-size: clamp(22px, 5vw, 48px);         /* was 28px floor — too large on 320px */
+  font-size: clamp(18px, 4vw, 26px);
   font-weight: 800;
-  margin-bottom: 12px;
-  color: #081b3f;
+  color: #0d1b3e;
+  font-family: var(--ff-montserrat);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
 }
 
 .fleet-content p {
-  color: #555;
-  font-size: clamp(14px, 2vw, 19px);
-  line-height: 1.8;
-  margin-bottom: 28px;
-  max-width: 40ch;
-  margin-inline: auto;
+  font-size: clamp(11px, 1.8vw, 13.5px);
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 30ch;
 }
 
-.fleet-card .btn {
-  width: 100%;
-  border-radius: 50px;
-  padding: clamp(12px, 2vw, 18px);
-  font-size: clamp(13px, 1.5vw, 18px);
-  font-weight: 600;
-  letter-spacing: 1px;
-  background: linear-gradient(90deg, #4a84d9, #2b63c6);
-  transition: 0.35s;
-}
-.fleet-card:hover .btn {
-  background: linear-gradient(90deg, #feb512, #ffb300);
-  color: #111;
+/* ── FOOTER ROW ── */
+.fleet-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 6px;
 }
 
-/* ── Bus Section ── */
-#buses .fleet-grid {
-  grid-template-columns: 1fr;
-  padding-top: 0;
-  gap: 0;
+/* ── SPECS ── */
+.fleet-specs {
+  display: flex;
+  gap: clamp(8px, 2vw, 16px);
 }
 
-#buses .fleet-card {
+.fleet-spec {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
-  padding: clamp(30px, 5vw, 50px) clamp(20px, 4vw, 40px);
-  overflow: hidden;
 }
 
-#buses .fleet-image {
-  position: static;
-  transform: none;
+.fleet-spec-val {
+  font-size: clamp(11px, 1.8vw, 13px);
+  font-weight: 700;
+  color: #0d1b3e;
 }
 
-#buses .fleet-image img {
-  width: clamp(200px, 50vw, 420px);
-  height: auto;
+.fleet-spec-lbl {
+  font-size: clamp(9px, 1.4vw, 10px);
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.fleet-icon {
-  font-size: 48px;
-  margin-bottom: 8px;
-  display: block;
+/* ── BUTTON ── */
+.fleet-card .btn {
+  width: auto;
+  border-radius: 50px;
+  padding: clamp(7px, 1.2vw, 10px) clamp(14px, 2.5vw, 22px);
+  font-size: clamp(10px, 1.4vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+  flex-shrink: 0;
 }
+
+/* ── PER-CARD COLOUR THEMES ── */
+
+/* Sedan — blue */
+.fleet-card:nth-child(1)::before             { background: #2b63c6; }
+.fleet-card:nth-child(1) .fleet-image        { background: linear-gradient(135deg, #1a3a6e, #2b63c6); }
+.fleet-card:nth-child(1) .fleet-image::after { background: linear-gradient(135deg, #1a3a6e, #2b63c6); }
+.fleet-card:nth-child(1) .btn               { background: linear-gradient(90deg, #2b63c6, #1a3a6e); }
+.fleet-card:nth-child(1) .btn:hover         { background: #feb512; color: #111; }
+
+/* SUV — amber */
+.fleet-card:nth-child(2)::before             { background: #e8860a; }
+.fleet-card:nth-child(2) .fleet-image        { background: linear-gradient(135deg, #7b3f00, #e8860a); }
+.fleet-card:nth-child(2) .fleet-image::after { background: linear-gradient(135deg, #7b3f00, #e8860a); }
+.fleet-card:nth-child(2) .btn               { background: linear-gradient(90deg, #e8860a, #c46b00); }
+.fleet-card:nth-child(2) .btn:hover         { background: #feb512; color: #111; }
+
+/* Luxury — purple */
+.fleet-card:nth-child(3)::before             { background: #6b4fc8; }
+.fleet-card:nth-child(3) .fleet-image        { background: linear-gradient(135deg, #1a1a2e, #4b3f8d); }
+.fleet-card:nth-child(3) .fleet-image::after { background: linear-gradient(135deg, #1a1a2e, #4b3f8d); }
+.fleet-card:nth-child(3) .btn               { background: linear-gradient(90deg, #6b4fc8, #3b2a7a); }
+.fleet-card:nth-child(3) .btn:hover         { background: #feb512; color: #111; }
+
+/* ── REMOVE OLD CIRCLE ── */
+.fleet-card .car-circle { display: none; }
 
 
 /*-----------------------------------*\

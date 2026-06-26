@@ -34,6 +34,8 @@ const goTopBtn = document.querySelector("[data-go-top]");
 
 let lastScrollY = window.scrollY;
 
+
+
 window.addEventListener("scroll", () => {
   if (window.scrollY === lastScrollY) return;
   lastScrollY = window.scrollY;
@@ -48,3 +50,4 @@ window.addEventListener("scroll", () => {
     goTopBtn.classList.toggle("active", window.scrollY > 300);
   }
 });
+
