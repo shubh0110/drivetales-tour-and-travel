@@ -15,4 +15,5 @@ async function loadComponent(id, file) {
   }
 }
 
-loadComponent("fleet-section", "./components/cars.html");
+loadComponent("cars-section", "./components/cars.html");
+loadComponent("buses-section", "./components/buses.html");

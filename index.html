@@ -9,12 +9,14 @@
 
   <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/cars-modal.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+    
 </head>
 
 <body id="top">
@@ -99,44 +101,14 @@
         - #CARS FLEET
       -->
 
-      <div id="fleet-section"></div>
+      <div id="cars-section"></div>
 
 
       <!--
         - #BUSES FLEET
       -->
 
-      <section class="fleet" id="buses">
-        <div class="container">
-
-          <p class="section-subtitle" style="text-align:center;">Group Travel</p>
-          <h2 class="h2 section-title" style="text-align:center; color:#fff;">Our Bus Fleet</h2>
-
-          <div class="fleet-grid" style="grid-template-columns:1fr; padding-top:0; gap:0;">
-
-            <div class="fleet-card"
-              style="display:flex; flex-wrap:wrap; align-items:center; gap:clamp(20px,4vw,40px); text-align:left; padding:clamp(28px,4vw,50px);">
-
-              <div class="fleet-content" style="flex:1 1 240px; min-width:0;">
-                <span class="fleet-icon">🚌</span>
-                <h3 style="font-size:clamp(24px,4vw,42px);">Buses</h3>
-                <p style="font-size:clamp(14px,1.8vw,18px);">
-                  Mini Buses, Luxury Coaches and Tourist Buses for family tours,
-                  school trips, corporate travel and group tours.
-                </p>
-                <a href="#" class="btn btn-primary" style="display:inline-block; width:auto; padding:14px 32px;">Explore
-                  Buses</a>
-              </div>
-
-              <div style="flex:1 1 220px; min-width:0; text-align:center;">
-                <img src="./assets/images/bus.png" alt="Bus" style="width:100%; max-width:420px; height:auto;">
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <div id="buses-section"></div>
 
 
       <!--
@@ -362,6 +334,8 @@
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <div id="carsModalContainer"></div>
+  <script src="./assets/js/cars-modal.js"></script>
 
 </body>
 

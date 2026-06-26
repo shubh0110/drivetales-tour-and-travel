@@ -1,0 +1,1173 @@
+/* ======================================
+   FLEET MODAL
+====================================== */
+
+.fleet-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(10,18,40,.72);
+    backdrop-filter:blur(12px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    visibility:hidden;
+    transition:.35s;
+    z-index:9999;
+}
+
+.fleet-modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+/* ======================================
+   MODAL BOX
+====================================== */
+
+.fleet-modal-box{
+
+    width:min(1200px,94%);
+    max-height:90vh;
+    overflow-y:auto;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:35px;
+
+    position:relative;
+
+    animation:popup .35s ease;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.25);
+
+}
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+        transform:translateY(50px) scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:none;
+
+    }
+
+}
+
+/* ======================================
+   CLOSE
+====================================== */
+
+.fleet-close{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#eef2ff;
+
+    cursor:pointer;
+
+    font-size:26px;
+
+    transition:.3s;
+
+}
+
+.fleet-close:hover{
+
+    background:#FEB512;
+
+    color:#fff;
+
+}
+
+/*======================================
+ HERO
+======================================*/
+
+.fleet-hero{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:linear-gradient(135deg,#003baf,#0d2d82);
+
+    border-radius:24px;
+
+    padding:45px;
+
+    margin-bottom:35px;
+
+    min-height:260px;
+
+}
+
+.fleet-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at 15% 20%,rgba(255,255,255,.08),transparent 220px),
+
+    radial-gradient(circle at 80% 10%,rgba(255,255,255,.08),transparent 280px);
+
+}
+
+.fleet-hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-120px;
+
+    bottom:-130px;
+
+    width:420px;
+
+    height:250px;
+
+    background:#FEB512;
+
+    border-radius:50%;
+
+    transform:rotate(-12deg);
+
+}
+
+.fleet-hero-left{
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+.fleet-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:rgba(255,255,255,.12);
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    color:#fff;
+
+    font-size:30px;
+
+    font-weight:700;
+
+    backdrop-filter:blur(8px);
+
+}
+
+.fleet-badge ion-icon{
+
+    color:#FEB512;
+
+    font-size:30px;
+
+}
+
+.fleet-hero h2{
+
+    margin-top:28px;
+
+    color:#fff;
+
+    font-size:44px;
+
+    font-weight:800;
+
+}
+
+.fleet-hero p{
+
+    margin-top:12px;
+
+    color:#d8e4ff;
+
+    font-size:18px;
+
+}
+
+.fleet-available{
+
+    margin-top:30px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:#1f4dc2;
+
+    color:#fff;
+
+    padding:14px 24px;
+
+    border-radius:40px;
+
+    font-weight:600;
+
+}
+
+.fleet-available ion-icon{
+
+    color:#FEB512;
+
+    font-size:22px;
+
+}
+
+.fleet-hero-right{
+
+    position:relative;
+
+    z-index:10;
+
+}
+
+.fleet-hero-right img{
+
+    width:480px;
+
+    filter:drop-shadow(0 30px 40px rgba(0,0,0,.28));
+
+}
+
+/* ======================================
+   GRID
+====================================== */
+
+.fleet-modal-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+/* ======================================
+   CARD
+====================================== */
+
+.modal-car-card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    padding:22px;
+
+    border:1px solid #edf0f8;
+
+    transition:.35s;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    position:relative;
+
+}
+
+.modal-car-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+
+}
+
+/* ======================================
+   IMAGE
+====================================== */
+
+.modal-car-card img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:contain;
+
+    transition:.35s;
+
+}
+
+.modal-car-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* ======================================
+   TITLE
+====================================== */
+
+.modal-car-card h3{
+
+    margin-top:18px;
+
+    font-size:26px;
+
+    color:#102a56;
+
+}
+
+/* ======================================
+   RATING
+====================================== */
+
+.rating{
+
+    color:#FEB512;
+
+    margin:8px 0 18px;
+
+    font-size:15px;
+
+}
+
+/* ======================================
+   FEATURES
+====================================== */
+
+.car-features{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:18px;
+
+}
+
+.car-features span{
+
+    background:#f4f7ff;
+
+    border-radius:8px;
+
+    padding:8px 12px;
+
+    font-size:13px;
+
+    color:#555;
+
+}
+
+/* ======================================
+   DESCRIPTION
+====================================== */
+
+.modal-car-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    min-height:60px;
+
+}
+
+/* ======================================
+   WHATSAPP BUTTON
+====================================== */
+
+.whatsapp-btn{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:#25D366;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.whatsapp-btn:hover{
+
+    background:#128C7E;
+
+}
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media(max-width:768px){
+
+.fleet-modal-box{
+
+    width:96%;
+
+    padding:20px;
+
+}
+
+.fleet-modal-header h2{
+
+    font-size:32px;
+
+}
+
+.fleet-modal-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.modal-car-card img{
+
+    height:140px;
+
+}
+
+}
+
+@media(max-width:900px){
+
+.fleet-hero{
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:30px;
+
+}
+
+.fleet-badge{
+
+    font-size:24px;
+
+}
+
+.fleet-hero h2{
+
+    font-size:30px;
+
+}
+
+.fleet-hero-right img{
+
+    width:320px;
+
+    margin-top:20px;
+
+}
+
+}
+
+
+
+/*==================================================
+        PREMIUM GRID
+==================================================*/
+
+.fleet-grid-modal{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+
+    gap:30px;
+
+    margin-top:35px;
+
+}
+
+/*==================================================
+        CARD
+==================================================*/
+
+.premium-car-card{
+
+    background:#fff;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    transition:.35s;
+
+    border:1px solid #edf2ff;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.premium-car-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:0 30px 70px rgba(0,0,0,.18);
+
+}
+
+/*==================================================
+        TOP
+==================================================*/
+
+.car-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 22px;
+
+}
+
+.car-badge{
+
+    background:#FEB512;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    padding:8px 15px;
+
+    border-radius:30px;
+
+}
+
+.executive{
+
+    background:#004cff;
+
+}
+
+.bestseller{
+
+    background:#10b981;
+
+}
+
+.car-price{
+
+    font-size:26px;
+
+    font-weight:800;
+
+    color:#003db8;
+
+}
+
+/*==================================================
+        IMAGE
+==================================================*/
+
+.car-image{
+
+    height:210px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    background:linear-gradient(180deg,#f8fbff,#eef4ff);
+
+}
+
+.car-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+
+    height:230px;
+
+    background:#feb51218;
+
+    border-radius:50%;
+
+}
+
+.car-image img{
+
+    width:260px;
+
+    position:relative;
+
+    z-index:5;
+
+    transition:.35s;
+
+    filter:drop-shadow(0 22px 30px rgba(0,0,0,.18));
+
+}
+
+.premium-car-card:hover .car-image img{
+
+    transform:
+
+    translateY(-15px)
+
+    rotate(-3deg)
+
+    scale(1.08);
+
+}
+
+/*==================================================
+        BODY
+==================================================*/
+
+.car-body{
+
+    padding:25px;
+
+}
+
+.car-title-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+}
+
+.car-title-row h3{
+
+    font-size:28px;
+
+    color:#0b2b67;
+
+    margin:0;
+
+}
+
+.car-rating{
+
+    color:#FEB512;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+.car-body p{
+
+    color:#6c7280;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+
+}
+
+/*==================================================
+        SPECS
+==================================================*/
+
+.car-specs{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+    margin-bottom:25px;
+
+}
+
+.spec{
+
+    background:#f7faff;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    padding:14px 8px;
+
+    transition:.25s;
+
+}
+
+.spec:hover{
+
+    background:#003db8;
+
+    color:#fff;
+
+}
+
+.spec span{
+
+    display:block;
+
+    margin-top:6px;
+
+    font-size:13px;
+
+}
+
+/*==================================================
+        SERVICES
+==================================================*/
+
+.car-services{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:28px;
+
+}
+
+.car-services span{
+
+    background:#eef6ff;
+
+    color:#004cff;
+
+    border-radius:30px;
+
+    padding:8px 14px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+/*==================================================
+        WHATSAPP
+==================================================*/
+
+.whatsapp-btn{
+
+    width:100%;
+
+    height:52px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    background:#25D366;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.whatsapp-btn:hover{
+
+    background:#128C7E;
+
+    transform:translateY(-3px);
+
+}
+
+/*==================================================
+        MOBILE
+==================================================*/
+
+@media(max-width:768px){
+
+.fleet-grid-modal{
+
+    grid-template-columns:1fr;
+
+}
+
+.car-image{
+
+    height:170px;
+
+}
+
+.car-image img{
+
+    width:210px;
+
+}
+
+.car-title-row{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+}
+
+.car-specs{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+
+/*==================================================
+        SEARCH BAR
+==================================================*/
+
+.fleet-search{
+
+    margin:35px 0 25px;
+
+}
+
+.search-box{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    background:#fff;
+
+    border-radius:60px;
+
+    padding:18px 24px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    border:2px solid transparent;
+
+    transition:.35s;
+
+}
+
+.search-box:hover{
+
+    border-color:#003db8;
+
+}
+
+.search-box ion-icon{
+
+    font-size:24px;
+
+    color:#003db8;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding-left:15px;
+
+    font-size:16px;
+
+    background:transparent;
+
+    color:#444;
+
+}
+
+/*==================================================
+        FILTERS
+==================================================*/
+
+.fleet-filters{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:35px;
+
+}
+
+.fleet-filters button{
+
+    border:none;
+
+    padding:12px 24px;
+
+    border-radius:50px;
+
+    background:#edf3ff;
+
+    color:#003db8;
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.fleet-filters button:hover{
+
+    background:#FEB512;
+
+    color:#fff;
+
+    transform:translateY(-3px);
+
+}
+
+.fleet-filters .active{
+
+    background:#003db8;
+
+    color:#fff;
+
+}
+
+/*==================================================
+        HERO STATS
+==================================================*/
+
+.fleet-stats{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.stat{
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    padding:18px 25px;
+
+    min-width:110px;
+
+    text-align:center;
+
+}
+
+.stat h3{
+
+    color:#FEB512;
+
+    font-size:28px;
+
+    margin:0;
+
+}
+
+.stat span{
+
+    color:#fff;
+
+    font-size:13px;
+
+}
+
+/*==================================================
+        BOTTOM CTA
+==================================================*/
+
+.fleet-bottom{
+
+    margin-top:45px;
+
+    border-radius:22px;
+
+    background:linear-gradient(135deg,#003db8,#0d2f82);
+
+    padding:35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.fleet-bottom-left h3{
+
+    color:#fff;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+
+}
+
+.fleet-bottom-left p{
+
+    color:#dbe6ff;
+
+}
+
+.fleet-contact{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.fleet-contact a{
+
+    text-decoration:none;
+
+    background:#fff;
+
+    color:#003db8;
+
+    padding:14px 24px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.fleet-contact a:hover{
+
+    background:#FEB512;
+
+    color:#fff;
+
+}
+
+/*==================================================
+        SCROLLBAR
+==================================================*/
+
+.fleet-modal-box::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.fleet-modal-box::-webkit-scrollbar-thumb{
+
+    background:#003db8;
+
+    border-radius:20px;
+
+}
+
+.fleet-modal-box::-webkit-scrollbar-track{
+
+    background:#edf3ff;
+
+}
