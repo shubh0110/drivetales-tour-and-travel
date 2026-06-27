@@ -10,7 +10,7 @@ fetch("./components/cars-modal.html")
   .then(html => {
 
     modalContainer.innerHTML = html;
-
+console.log("modal loaded:", document.getElementById("fleetModal")); 
     initializeFleetModal();
 
   });
@@ -55,15 +55,23 @@ function initializeFleetModal() {
     closeBtn.addEventListener("click",closeModal);
 
     // Click Outside
-    modal.addEventListener("click",(e)=>{
+  modal.addEventListener("click", (e) => {
+     console.log("clicked:", e.target, "| is modal?", e.target === modal);
+    if (e.target === modal) {
+        // Check click wasn't on the scrollbar area
+        const box = modal.querySelector(".fleet-modal-box");
+        const rect = box.getBoundingClientRect();
+        const clickedInsideBox =
+            e.clientX >= rect.left &&
+            e.clientX <= rect.right &&
+            e.clientY >= rect.top &&
+            e.clientY <= rect.bottom;
 
-        if(e.target===modal){
-
+        if (!clickedInsideBox) {
             closeModal();
-
         }
-
-    });
+    }
+});
 
     // ESC Key
 
