@@ -85,4 +85,33 @@ function initializeFleetModal() {
 
     });
 
+
+        // =========================
+    // Fleet Tabs
+    // =========================
+
+    const tabs = document.querySelectorAll(".fleet-tab");
+    const tabContents = document.querySelectorAll(".fleet-tab-content");
+
+    tabs.forEach(tab => {
+
+        tab.addEventListener("click", () => {
+
+            // Remove active class
+            tabs.forEach(t => t.classList.remove("active"));
+            tabContents.forEach(content => content.classList.remove("active"));
+
+            // Add active class
+            tab.classList.add("active");
+
+            const target = document.getElementById(tab.dataset.tab);
+
+            if (target) {
+                target.classList.add("active");
+            }
+
+        });
+
+    });
+
 }
