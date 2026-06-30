@@ -1,0 +1,181 @@
+/*-----------------------------------*\
+ * #header.css — Header & Navigation
+\*-----------------------------------*/
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: transparent;
+}
+
+/* ---- Header Bottom (main nav bar) ---- */
+.header-bottom {
+  position: relative;
+  padding-block: 14px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.active .header-bottom {
+  background: rgba(4, 29, 77, 0.95);
+  box-shadow: 0 2px 20px rgba(0,0,0,.4);
+}
+
+.header-bottom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Logo */
+.logo img {
+  height: clamp(50px, 8vw, 80px);
+  width: auto;
+  transition: height 0.3s ease;
+}
+
+.header.active .logo img { height: clamp(44px, 7vw, 68px); }
+
+/* Nav open/close buttons */
+.nav-open-btn, .nav-close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--bright-navy-blue);
+  font-size: clamp(24px, 5vw, 32px);
+  line-height: 1;
+  padding: 4px;
+}
+
+/* ---- Overlay ---- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.25s ease;
+}
+
+/* ---- Mobile Drawer Navbar ---- */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  background: var(--white);
+  visibility: hidden;
+  pointer-events: none;
+  transition: right 0.2s ease-in, visibility 0s linear 0.2s;
+  z-index: 1001;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.navbar.active {
+  right: 0;
+  visibility: visible;
+  pointer-events: all;
+  transition: right 0.25s ease-out, visibility 0s linear 0s;
+}
+
+.navbar-top {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 16px;
+  border-bottom: 1px solid hsla(0,0%,0%,.1);
+}
+
+.navbar-top .logo img { width: 130px; height: auto; }
+
+.nav-close-btn { color: var(--bright-navy-blue); font-size: 22px; }
+.nav-close-btn ion-icon { --ionicon-stroke-width: 80px; }
+
+.navbar-list { border-top: 1px solid hsla(0,0%,0%,.1); }
+.navbar-list li { border-bottom: 1px solid hsla(0,0%,0%,.1); }
+
+.navbar-link {
+  padding: 15px 20px;
+  color: #6395EE;
+  font-weight: var(--fw-500);
+  font-size: var(--fs-4);
+  transition: var(--transition);
+  text-transform: capitalize;
+}
+
+.navbar-link:is(:hover, :focus) { color: var(--bright-navy-blue); }
+
+
+/* ---- Desktop Nav (≥ 992px) ---- */
+@media (min-width: 992px) {
+
+  .nav-open-btn { display: none; }
+
+  .navbar {
+    all: unset;
+    display: flex;
+    align-items: center;
+    position: static;
+    visibility: visible;
+    pointer-events: all;
+    z-index: auto;
+    overflow: visible;
+  }
+
+  .navbar-top { display: none; }
+
+  .navbar-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-list li { border: none; }
+
+  .navbar-link {
+    display: block;
+    color: var(--bright-navy-blue);
+    font-size: 15px;
+    font-weight: var(--fw-500);
+    font-family: var(--ff-poppins);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-radius: 6px;
+    transition: var(--transition);
+  }
+
+  .navbar-link:is(:hover, :focus) {
+    color: #feb512;
+    background: rgba(255,255,255,.08);
+  }
+
+  .header.active .navbar-link {
+    color: var(--white);
+    transition: color 0.3s ease;
+  }
+
+  .header.active .navbar-link:hover,
+  .header.active .navbar-link:focus {
+    color: #feb512;
+  }
+
+  .overlay { display: none !important; }
+
+}
+
+@media (min-width: 1200px) {
+  .navbar-link { font-size: 16px; padding: 10px 20px; }
+}

@@ -1,0 +1,40 @@
+/*-----------------------------------*\
+ * #gallery.css — Gallery Section
+\*-----------------------------------*/
+
+.gallery { padding-block: var(--section-padding); }
+
+.gallery-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-15);
+  overflow: hidden;
+}
+
+.gallery-item:nth-child(3) { grid-area: 1 / 2 / 3 / 3; }
+
+.gallery-image img { width: 100%; height: 100%; object-fit: cover; }
+
+
+/* ── RESPONSIVE ── */
+@media (min-width: 480px) {
+  .gallery-list { gap: 10px; }
+}
+
+@media (min-width: 768px) {
+  .gallery-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .gallery-image { border-radius: var(--radius-25); }
+}
+
+@media (min-width: 1200px) {
+  .gallery-list { gap: 20px; }
+}

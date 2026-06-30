@@ -1,0 +1,23 @@
+/*-----------------------------------*\
+ * #cta.css — Call to Action Section
+\*-----------------------------------*/
+
+.cta {
+  background: var(--bright-navy-blue);
+  padding-block: var(--section-padding);
+}
+
+.cta :is(.section-subtitle, .section-title, .section-text) { color: var(--white); }
+.cta .section-text { font-size: var(--fs-5); }
+
+
+/* ── RESPONSIVE ── */
+@media (min-width: 768px) {
+  .cta .container { display: flex; justify-content: space-between; align-items: center; }
+  .cta-content { width: calc(100% - 200px); }
+  .cta .section-text { margin-inline: 0; }
+}
+
+@media (min-width: 992px) {
+  .cta .section-title { max-width: 25ch; }
+}

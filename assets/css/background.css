@@ -1,0 +1,72 @@
+/*-----------------------------------*\
+ * #background.css — Space Background
+\*-----------------------------------*/
+
+html, body { min-height: 100%; }
+
+body {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #020b24 0%,
+    #041d4d 25%,
+    #063d88 60%,
+    #0b6cff 100%
+  ) !important;
+  background-attachment: fixed;
+}
+
+body::before, body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::before {
+  background-image:
+    radial-gradient(circle, #feb512 1px, transparent 1px),
+    radial-gradient(circle, #feb512 2px, transparent 2px),
+    radial-gradient(circle, #feb512 1.5px, transparent 1.5px),
+    radial-gradient(circle, #feb512 2px, transparent 2px);
+  background-size: 120px 120px, 220px 220px, 340px 340px, 460px 460px;
+  animation: starMove 120s linear infinite;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 4px #feb512) drop-shadow(0 0 8px rgba(254,181,18,.8));
+}
+
+body::after {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,191,255,.25), transparent 250px),
+    radial-gradient(circle at 80% 30%, rgba(0,132,255,.20), transparent 300px),
+    radial-gradient(circle at 50% 80%, rgba(0,255,255,.15), transparent 320px);
+  animation: nebulaMove 10s ease-in-out infinite alternate;
+}
+
+@keyframes starMove {
+  from { transform: translateY(0); }
+  to   { transform: translateY(600px); }
+}
+
+@keyframes nebulaMove {
+  from { transform: translate(-30px, -20px); }
+  to   { transform: translate(30px, 20px); }
+}
+
+/* Section transparency overrides */
+.hero, .popular, .package, .gallery, .fleet,
+.cta, .footer-top, .footer-bottom {
+  background: transparent !important;
+}
+
+.package-card, .popular-card .card-content {
+  background: rgba(255,255,255,.08) !important;
+  backdrop-filter: blur(12px);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; opacity: 0.4; }
+  body::after  { animation: none; }
+}

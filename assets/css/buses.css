@@ -1,0 +1,458 @@
+/*-----------------------------------*\
+ * #buses.css — Buses Fleet Section (Non-AC, AC, Volvo)
+\*-----------------------------------*/
+
+.buses {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    overflow: visible;
+}
+
+.buses-grid {
+    display: grid;
+    gap: clamp(14px, 3vw, 20px);
+    padding-top: clamp(20px, 4vw, 40px);
+}
+
+
+/* ──────────────────────────────────
+   BREAKPOINTS
+────────────────────────────────── */
+
+/* Phone (< 600px): 1-col, horizontal card */
+@media (max-width: 599px) {
+
+    .buses-card {
+        flex-direction: row;
+        min-height: 140px;
+        overflow: visible;
+    }
+
+    .buses-image {
+        position: relative;
+        width: 120px;
+        min-width: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: visible;
+    }
+
+    .buses-image img {
+        width: 110px;
+        position: absolute;
+        transform: translateY(-10%);
+        z-index: 10;
+    }
+
+    .buses-card:hover .buses-image img {
+        transform: translateY(-50%) scale(3.08);
+    }
+
+    .buses-content {
+        flex: 1;
+        padding: 16px 18px 16px 35px;
+    }
+
+}
+
+/* Tablet (600–899px): 1-col, horizontal card, roomier */
+@media (min-width: 600px) and (max-width: 899px) {
+
+    .buses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .buses-card {
+        flex-direction: row;
+        min-height: 160px;
+    }
+
+    .buses-image {
+        width: 160px;
+        flex-shrink: 0;
+    }
+
+    .buses-image img {
+        width: 120px;
+    }
+
+    .buses-content {
+        padding: 16px 20px;
+    }
+
+}
+
+/* Desktop (≥ 900px): 3-col, vertical card */
+@media (min-width: 900px) {
+
+    .buses-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .buses-card {
+        flex-direction: column;
+        min-height: 380px;
+        overflow: visible;
+    }
+
+    .buses-image {
+        position: relative;
+        width: 100%;
+        height: 170px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: visible;
+        z-index: 20;
+    }
+
+    .buses-image::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 28px;
+        background: inherit;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 82%);
+        z-index: 1;
+    }
+
+    .buses-image img {
+        position: absolute;
+        width: 250px;
+        bottom: -15px;
+        transform: translateX(-50%) rotate(-8deg);
+        transition: all .45s cubic-bezier(.34, 1.56, .64, 1);
+        z-index: 30;
+    }
+
+    .buses-content {
+        padding: 55px 20px 22px;
+    }
+
+}
+
+
+/* ──────────────────────────────────
+   CARD BASE
+────────────────────────────────── */
+
+.buses-card {
+    display: flex;
+    position: relative;
+    background: rgba(255, 255, 255, .96);
+    border-radius: 20px;
+    overflow: visible;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .18);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.buses-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, .25);
+}
+
+
+/* ── ACCENT BAR ── */
+.buses-card::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+}
+
+/* Left bar on mobile/tablet */
+@media (max-width: 899px) {
+    .buses-card::before {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 4px;
+        border-radius: 20px 0 0 20px;
+    }
+}
+
+/* Top bar on desktop */
+@media (min-width: 900px) {
+    .buses-card::before {
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        border-radius: 20px 20px 0 0;
+    }
+}
+
+
+/* ── IMAGE PANEL ── */
+.buses-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.buses-image img {
+    height: auto;
+    filter: drop-shadow(0 15px 28px rgba(0, 0, 0, .35));
+    transition: transform .45s cubic-bezier(.34, 1.56, .64, 1),
+        filter .45s ease;
+    transform: translateX(0) translateY(-10px) rotate(-5deg);
+    transform-origin: center bottom;
+    position: relative;
+    z-index: 5;
+}
+
+@media (min-width: 900px) {
+    .buses-card:hover .buses-image img {
+        transform: translateX(-30px) translateY(-38px) scale(1.12) rotate(-2deg);
+        filter: drop-shadow(0 28px 45px rgba(0, 0, 0, .45));
+    }
+}
+
+@media (max-width: 899px) {
+    .buses-card:hover .buses-image img {
+        transform: translateY(-8px) scale(1.08) rotate(-2deg);
+        filter: drop-shadow(0 12px 20px rgba(0, 0, 0, .35));
+    }
+}
+
+/* Angled separator */
+.buses-image::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+}
+
+/* Side separator on mobile */
+@media (max-width: 899px) {
+    .buses-image::after {
+        right: -1px;
+        top: 0;
+        bottom: 0;
+        width: clamp(20px, 4vw, 30px);
+        clip-path: polygon(0 0, 100% 8%, 100% 92%, 0 100%);
+    }
+}
+
+/* Bottom separator on desktop */
+@media (min-width: 900px) {
+    .buses-image::after {
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: clamp(20px, 4vw, 30px);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+    }
+}
+
+
+/* ── CONTENT BODY ── */
+.buses-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: clamp(4px, 1vw, 8px);
+    padding: clamp(14px, 2.5vw, 22px);
+}
+
+.buses-content h3 {
+    font-size: clamp(18px, 4vw, 26px);
+    font-weight: 800;
+    color: #0d1b3e;
+    font-family: var(--ff-montserrat);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.buses-content p {
+    font-size: clamp(11px, 1.8vw, 13.5px);
+    color: #6b7280;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 30ch;
+}
+
+
+/* ── FOOTER ROW ── */
+.buses-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 6px;
+}
+
+
+/* ── SPECS ── */
+.buses-specs {
+    display: flex;
+    gap: clamp(8px, 2vw, 16px);
+}
+
+.buses-spec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buses-spec-val {
+    font-size: clamp(11px, 1.8vw, 13px);
+    font-weight: 700;
+    color: #0d1b3e;
+}
+
+.buses-spec-lbl {
+    font-size: clamp(9px, 1.4vw, 10px);
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+
+/* ── BUTTON ── */
+.buses-card .btn {
+    width: auto;
+    border-radius: 50px;
+    padding: clamp(7px, 1.2vw, 10px) clamp(14px, 2.5vw, 22px);
+    font-size: clamp(10px, 1.4vw, 12px);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.25s;
+    flex-shrink: 0;
+}
+
+
+/* ── PER-CARD COLOUR THEMES ── */
+
+/* Non-AC — Slate Gray */
+/* ==========================================
+   NON-AC BUS — Blue
+========================================== */
+
+/* .buses-card:nth-child(1)::before {
+    background: #2B63C6;
+} */
+
+.buses-card:nth-child(1) .buses-image {
+    background: linear-gradient(135deg, #123A88, #2B63C6);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(1) .buses-image::after {
+    background: linear-gradient(135deg, #123A88, #2B63C6);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(1) .btn {
+    background: linear-gradient(90deg, #2B63C6, #123A88);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(1) .btn:hover {
+    background: #FEB512;
+    color: #2B63C6;
+}
+
+
+/* ==========================================
+   AC BUS — Yellow
+========================================== */
+
+/* .buses-card:nth-child(2)::before {
+    background: #FEB512;
+} */
+
+.buses-card:nth-child(2) .buses-image {
+    background: linear-gradient(135deg, #D18C00, #FEB512);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(2) .buses-image::after {
+    background: linear-gradient(135deg, #D18C00, #FEB512);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(2) .btn {
+    background: linear-gradient(90deg, #FEB512, #D18C00);
+    border-radius: 20px;
+    color: #123A88;
+}
+
+.buses-card:nth-child(2) .btn:hover {
+    background: #123A88;
+    color: #FEB512;
+}
+
+/* Volvo — Deep Navy */
+
+.buses-card:nth-child(3) .buses-image {
+    background: linear-gradient(135deg, #071D49, #123A88);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(3) .buses-image::after {
+    background: linear-gradient(135deg, #071D49, #123A88);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(3) .btn {
+    background: linear-gradient(90deg, #123A88, #071D49);
+    border-radius: 20px;
+}
+
+.buses-card:nth-child(3) .btn:hover {
+    background: #FEB512;
+    color: #123A88;
+}
+
+/* Remove old circle */
+.buses-card .car-circle {
+    display: none;
+}
+
+
+/* ── RESPONSIVE GRID OVERRIDES ── */
+@media (min-width: 480px) {
+    .buses-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin-inline: auto;
+    }
+}
+
+@media (min-width: 580px) {
+    .buses-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 768px) {
+    .buses-grid {
+        grid-template-columns: 1fr 1fr;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .buses-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .buses-grid {
+        gap: 50px;
+    }
+}
