@@ -19,7 +19,7 @@ async function initPage() {
 
     await Promise.all([
         loadComponent("header", "./components/header.html"),
-        loadComponent("hero", "./components/about/hero.html"),
+        // loadComponent("hero", "./components/about/hero.html"),
         loadComponent("about-company", "./components/about/about-company.html"),
         loadComponent("founder", "./components/about/founder.html"),
         loadComponent("why-choose", "./components/about/why-choose.html"),
