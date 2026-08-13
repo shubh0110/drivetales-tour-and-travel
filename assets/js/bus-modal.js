@@ -61,10 +61,15 @@ function initializeBusModals(){
 
 function setupBusModal(cardId, buttonId, modalId, closeId){
 
-    const card = document.getElementById(cardId);
-    const exploreBtn = document.getElementById(buttonId);
     const modal = document.getElementById(modalId);
     const closeBtn = document.getElementById(closeId);
+
+    // Elements like the card and explore button are loaded asynchronously
+    // by `components.js`. Try to find them now; if not present, use
+    // delegated click handlers on `document` so clicks still open the
+    // modal once those components are injected.
+    const card = document.getElementById(cardId);
+    const exploreBtn = document.getElementById(buttonId);
 
     if(!modal) return;
 
@@ -103,24 +108,33 @@ function setupBusModal(cardId, buttonId, modalId, closeId){
 
     // Card Click
     if(card){
-
         card.addEventListener("click", openModal);
-
+    } else {
+        // delegated handler in case `card` is injected later
+        document.addEventListener('click', function delegatedCardClick(e){
+            if(e.target.closest && e.target.closest(`#${cardId}`)){
+                openModal();
+            }
+        });
     }
 
     // Explore Button
     if(exploreBtn){
-
         exploreBtn.addEventListener("click", function(e){
-
             e.preventDefault();
-
             e.stopPropagation();
-
             openModal();
-
         });
-
+    } else {
+        // delegated handler for explore button clicks
+        document.addEventListener('click', function delegatedExploreClick(e){
+            const target = e.target.closest && e.target.closest(`#${buttonId}`);
+            if(target){
+                e.preventDefault();
+                e.stopPropagation();
+                openModal();
+            }
+        });
     }
 
     // Close Button
