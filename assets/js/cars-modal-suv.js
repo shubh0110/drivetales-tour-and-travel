@@ -21,6 +21,8 @@ function initializeSuvModal() {
     const suvCard = document.getElementById("suvCard");
     const suvExplore = document.getElementById("suvExplore");
 
+    if (!modal) return;
+
     // Vehicle Count
     const vehicleCount = modal.querySelector("#vehicleCount");
 
@@ -79,6 +81,12 @@ function initializeSuvModal() {
 
         suvCard.addEventListener("click", openModal);
 
+    } else {
+        document.addEventListener("click", (e) => {
+            if (e.target.closest && e.target.closest("#suvCard")) {
+                openModal();
+            }
+        });
     }
 
     if (suvExplore) {
@@ -92,6 +100,15 @@ function initializeSuvModal() {
 
         });
 
+    } else {
+        document.addEventListener("click", (e) => {
+            const target = e.target.closest && e.target.closest("#suvExplore");
+            if (target) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal();
+            }
+        });
     }
 
     // =========================

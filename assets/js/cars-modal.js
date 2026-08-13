@@ -23,6 +23,8 @@ function initializeFleetModal() {
     const sedanCard = document.getElementById("sedanCard");
     const sedanExplore = document.getElementById("sedanExplore");
 
+    if (!modal) return;
+
     // Vehicle Count
     const vehicleCount = modal.querySelector("#vehicleCount");
 
@@ -75,6 +77,12 @@ function initializeFleetModal() {
 
     if(sedanCard){
         sedanCard.addEventListener("click", openModal);
+    } else {
+        document.addEventListener("click", (e) => {
+            if (e.target.closest && e.target.closest("#sedanCard")) {
+                openModal();
+            }
+        });
     }
 
     // =========================
@@ -92,6 +100,15 @@ function initializeFleetModal() {
 
         });
 
+    } else {
+        document.addEventListener("click", (e) => {
+            const target = e.target.closest && e.target.closest("#sedanExplore");
+            if (target) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal();
+            }
+        });
     }
 
     // =========================

@@ -61,6 +61,8 @@ function initializeBusModals(){
 
 function setupBusModal(cardId, buttonId, modalId, closeId){
 
+    console.debug(`[bus-modal] setupBusModal called for modalId=${modalId}, cardId=${cardId}, buttonId=${buttonId}`);
+
     const modal = document.getElementById(modalId);
     const closeBtn = document.getElementById(closeId);
 
@@ -88,7 +90,9 @@ function setupBusModal(cardId, buttonId, modalId, closeId){
 
         }
 
+
     function openModal(){
+        console.debug(`[bus-modal] openModal -> ${modalId}`);
 
         updateRouteCount();
 
@@ -99,6 +103,7 @@ function setupBusModal(cardId, buttonId, modalId, closeId){
     }
 
     function closeModal(){
+        console.debug(`[bus-modal] closeModal -> ${modalId}`);
 
         modal.classList.remove("show");
 
@@ -113,6 +118,7 @@ function setupBusModal(cardId, buttonId, modalId, closeId){
         // delegated handler in case `card` is injected later
         document.addEventListener('click', function delegatedCardClick(e){
             if(e.target.closest && e.target.closest(`#${cardId}`)){
+                console.debug(`[bus-modal] delegated card click detected for ${cardId}`);
                 openModal();
             }
         });
@@ -121,6 +127,7 @@ function setupBusModal(cardId, buttonId, modalId, closeId){
     // Explore Button
     if(exploreBtn){
         exploreBtn.addEventListener("click", function(e){
+            console.debug(`[bus-modal] explore button clicked -> ${buttonId}`);
             e.preventDefault();
             e.stopPropagation();
             openModal();
@@ -130,6 +137,7 @@ function setupBusModal(cardId, buttonId, modalId, closeId){
         document.addEventListener('click', function delegatedExploreClick(e){
             const target = e.target.closest && e.target.closest(`#${buttonId}`);
             if(target){
+                console.debug(`[bus-modal] delegated explore click detected for ${buttonId}`);
                 e.preventDefault();
                 e.stopPropagation();
                 openModal();
