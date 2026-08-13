@@ -1,0 +1,102 @@
+/*==================================
+          OUR VALUES
+===================================*/
+
+.values{
+
+    padding:120px 0;
+
+    background:#F8FBFF;
+
+}
+
+.values-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:25px;
+
+    margin-top:70px;
+
+}
+
+.value-card{
+
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:40px 25px;
+
+    text-align:center;
+
+    transition:.4s;
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.06);
+
+}
+
+/* .value-card:hover{
+
+    transform:translateY(-12px);
+
+    background:#1B5BFF;
+
+} */
+
+/* Image used directly in value-card (no wrapper icon element) */
+.value-card img{
+
+    width:80px;
+
+    height:80px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:0 auto 20px;
+
+    transition:.4s;
+
+}
+
+.value-card:hover img{
+
+    transform:rotate(-10deg) scale(1.1);
+
+}
+
+.value-card h3{
+
+    margin:10px 0 10px;
+
+    color:#0B1F4D;
+
+    transition:.3s;
+
+}
+
+.value-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    transition:.3s;
+
+}
+/* 
+.value-card:hover h3,
+
+.value-card:hover p{
+
+    color:#fff;
+
+} */

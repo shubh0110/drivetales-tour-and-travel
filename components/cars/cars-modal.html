@@ -1,0 +1,67 @@
+<!-- cars-modal.html — Sedan Modal -->
+<!-- Cars are injected automatically by sedan-data.js. Do NOT add car cards here manually. -->
+
+<div class="fleet-modal" id="fleetModal">
+    <div class="fleet-modal-box">
+
+        <button class="fleet-close" id="closeFleetModal">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+        <div class="fleet-hero">
+            <div class="fleet-left">
+                <span class="fleet-tag">
+                    <ion-icon name="car-sport"></ion-icon>
+                    Premium Sedan Collection
+                </span>
+
+                <h1>Travel in Comfort & Style</h1>
+
+                <p>Airport Transfers • Local Travel • Corporate Travel • Outstation Trips</p>
+
+                <div class="fleet-stats">
+                    <div class="stat">
+                        <h3 id="vehicleCount">3+</h3>
+                        <span>Vehicles</span>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3><span>Support</span>
+                    </div>
+                    <div class="stat">
+                        <h3>4.9★</h3><span>Rating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fleet-right">
+                <img src="./assets/images/sedan/aura.png" alt="Sedan Fleet">
+            </div>
+        </div>
+
+        <!-- TAB BAR -->
+        <div class="fleet-tabs">
+            <button class="fleet-tab active" data-tab="cab">
+                <ion-icon name="car-sport-outline"></ion-icon>
+                Cab Services
+            </button>
+            <button class="fleet-tab" data-tab="rent">
+                <ion-icon name="key-outline"></ion-icon>
+                Rent Car
+            </button>
+        </div>
+
+        <!-- CAB TAB — cards injected by sedan-data.js -->
+        <div class="fleet-tab-content active" id="cab">
+            <div class="fleet-grid-modal">
+              
+            </div>
+        </div>
+
+        <!-- RENT TAB — cards injected by sedan-data.js -->
+        <div class="fleet-tab-content" id="rent">
+            <div class="fleet-grid-modal">
+            </div>
+        </div>
+
+    </div>
+</div>

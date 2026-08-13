@@ -55,7 +55,7 @@ body::after {
 }
 
 /* Section transparency overrides */
-.hero, .popular, .package, .gallery, .fleet,
+.hero, .cars, .buses .fleet,
 .cta, .footer-top, .footer-bottom {
   background: transparent !important;
 }

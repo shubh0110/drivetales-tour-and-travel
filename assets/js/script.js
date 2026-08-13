@@ -18,9 +18,9 @@ function closeNav() {
   document.body.classList.remove("nav-open");
 }
 
-navOpenBtn.addEventListener("click", openNav);
-navCloseBtn.addEventListener("click", closeNav);
-overlay.addEventListener("click", closeNav);
+if (navOpenBtn)  navOpenBtn.addEventListener("click", openNav);
+if (navCloseBtn) navCloseBtn.addEventListener("click", closeNav);
+if (overlay)     overlay.addEventListener("click", closeNav);
 navLinks.forEach(link => link.addEventListener("click", closeNav));
 
 
@@ -50,4 +50,3 @@ window.addEventListener("scroll", () => {
     goTopBtn.classList.toggle("active", window.scrollY > 300);
   }
 });
-

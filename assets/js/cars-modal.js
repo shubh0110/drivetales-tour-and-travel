@@ -5,12 +5,12 @@
 const modalContainer = document.getElementById("carsModalContainer");
 
 // Load modal HTML
-fetch("./components/cars-modal.html")
+fetch("./components/cars/cars-modal.html")
   .then(response => response.text())
   .then(html => {
 
     modalContainer.innerHTML = html;
-console.log("modal loaded:", document.getElementById("fleetModal")); 
+    window.renderSedanCards();
     initializeFleetModal();
 
   });
@@ -23,57 +23,102 @@ function initializeFleetModal() {
     const sedanCard = document.getElementById("sedanCard");
     const sedanExplore = document.getElementById("sedanExplore");
 
+    // Vehicle Count
+    const vehicleCount = modal.querySelector("#vehicleCount");
+
+    // =========================
+    // Vehicle Count Function
+    // =========================
+
+    function updateVehicleCount(tabId) {
+
+        const cards = modal.querySelectorAll(
+            "#" + tabId + " .premium-car-card"
+        );
+
+        if (vehicleCount) {
+            vehicleCount.textContent = cards.length;
+        }
+
+    }
+
+    // Default Count
+    updateVehicleCount("cab");
+
+    // =========================
+    // Modal Functions
+    // =========================
+
     function openModal(){
 
         modal.classList.add("show");
-        document.body.style.overflow="hidden";
+        document.body.style.overflow = "hidden";
+
+        const activeTab = modal.querySelector(".fleet-tab.active");
+
+        if(activeTab){
+            updateVehicleCount(activeTab.dataset.tab);
+        }
 
     }
 
     function closeModal(){
 
         modal.classList.remove("show");
-        document.body.style.overflow="";
+        document.body.style.overflow = "";
 
     }
 
+    // =========================
     // Click on Sedan Card
-    sedanCard.addEventListener("click",openModal);
+    // =========================
 
+    if(sedanCard){
+        sedanCard.addEventListener("click", openModal);
+    }
+
+    // =========================
     // Click Explore Button
-    sedanExplore.addEventListener("click",(e)=>{
+    // =========================
 
-        e.preventDefault();
+    if(sedanExplore){
 
-        e.stopPropagation();
+        sedanExplore.addEventListener("click",(e)=>{
 
-        openModal();
+            e.preventDefault();
+            e.stopPropagation();
+
+            openModal();
+
+        });
+
+    }
+
+    // =========================
+    // Close Button
+    // =========================
+
+    if(closeBtn){
+        closeBtn.addEventListener("click", closeModal);
+    }
+
+    // =========================
+    // Click Outside
+    // =========================
+
+    modal.addEventListener("click",(e)=>{
+
+        if(e.target===modal){
+
+            closeModal();
+
+        }
 
     });
 
-    // Close Button
-    closeBtn.addEventListener("click",closeModal);
-
-    // Click Outside
-  modal.addEventListener("click", (e) => {
-     console.log("clicked:", e.target, "| is modal?", e.target === modal);
-    if (e.target === modal) {
-        // Check click wasn't on the scrollbar area
-        const box = modal.querySelector(".fleet-modal-box");
-        const rect = box.getBoundingClientRect();
-        const clickedInsideBox =
-            e.clientX >= rect.left &&
-            e.clientX <= rect.right &&
-            e.clientY >= rect.top &&
-            e.clientY <= rect.bottom;
-
-        if (!clickedInsideBox) {
-            closeModal();
-        }
-    }
-});
-
+    // =========================
     // ESC Key
+    // =========================
 
     window.addEventListener("keydown",(e)=>{
 
@@ -85,30 +130,34 @@ function initializeFleetModal() {
 
     });
 
-
-        // =========================
+    // =========================
     // Fleet Tabs
     // =========================
 
-    const tabs = document.querySelectorAll(".fleet-tab");
-    const tabContents = document.querySelectorAll(".fleet-tab-content");
+    const tabs = modal.querySelectorAll(".fleet-tab");
+    const tabContents = modal.querySelectorAll(".fleet-tab-content");
 
     tabs.forEach(tab => {
 
         tab.addEventListener("click", () => {
 
-            // Remove active class
+            // Remove Active
             tabs.forEach(t => t.classList.remove("active"));
             tabContents.forEach(content => content.classList.remove("active"));
 
-            // Add active class
+            // Add Active
             tab.classList.add("active");
 
-            const target = document.getElementById(tab.dataset.tab);
+            const target = modal.querySelector("#" + tab.dataset.tab);
 
-            if (target) {
+            if(target){
+
                 target.classList.add("active");
+
             }
+
+            // Update Vehicle Count
+            updateVehicleCount(tab.dataset.tab);
 
         });
 

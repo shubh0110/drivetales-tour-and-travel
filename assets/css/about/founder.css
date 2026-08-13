@@ -1,0 +1,270 @@
+/*==============================
+          FOUNDER
+==============================*/
+
+.founder{
+
+    padding:100px 0;
+
+    background:#f8fbff;
+
+}
+
+.founder-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+/* IMAGE */
+
+.founder-image{
+
+    position:relative;
+
+}
+
+.founder-photo{
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:0 30px 60px rgba(0,0,0,.15);
+
+}
+
+.founder-photo img{
+
+    width:100%;
+
+    display:block;
+
+    transition:.5s;
+
+}
+
+.founder-photo:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* ================================================
+   NOTE: .experience-badge, .founder-team and
+   .team-card rules removed — not used in HTML.
+   ================================================ */
+
+/* CONTENT */
+
+.founder-content h2{
+
+    font-size:46px;
+
+    color:#0B1F4D;
+
+    margin:20px 0;
+
+    line-height:1.2;
+
+}
+
+.founder-content p{
+
+    color:#666;
+
+    line-height:1.9;
+
+    margin-bottom:30px;
+
+}
+
+blockquote{
+
+    border-left:5px solid #FEB512;
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    color:#444;
+
+    font-size:18px;
+
+    font-style:italic;
+
+    margin-bottom:35px;
+
+}
+
+.founder-details{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+
+}
+
+.founder-details h3{
+
+    color:#0B1F4D;
+
+    margin-bottom:5px;
+
+}
+
+.founder-details span{
+
+    color:#777;
+
+}
+
+.signature h2{
+
+    color:#1B5BFF;
+
+    font-family:cursive;
+
+    font-size:38px;
+
+}
+
+/* SOCIAL */
+
+.social-icons{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.social-icons a{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:#1B5BFF;
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.3s;
+
+    text-decoration:none;
+
+}
+
+.social-icons a:hover{
+
+    background:#FEB512;
+
+    transform:translateY(-6px);
+
+}
+
+
+
+/*==============================
+        RESPONSIVE
+==============================*/
+
+@media (max-width:992px){
+
+    .founder{
+
+        padding:80px 0;
+
+    }
+
+    .founder-grid{
+
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+    }
+
+    .founder-grid.reverse{
+
+        direction:ltr;
+
+    }
+
+    .founder-image{
+
+        max-width:500px;
+
+        width:100%;
+
+        margin:0 auto;
+
+    }
+
+    .founder-content h2{
+
+        font-size:38px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .founder{
+
+        padding:60px 0;
+
+    }
+
+    .founder-content h2{
+
+        font-size:30px;
+
+    }
+
+    blockquote{
+
+        font-size:16px;
+
+        padding:18px;
+
+    }
+
+    .founder-details{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .signature h2{
+
+        font-size:30px;
+
+    }
+
+}

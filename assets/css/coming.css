@@ -1,0 +1,75 @@
+/*=========================
+Coming Soon Card
+==========================*/
+
+.coming-soon{
+    position:relative;
+    overflow:hidden;
+}
+
+/* Blur entire card */
+.coming-soon .cars-image,
+.coming-soon .cars-content{
+    filter:blur(5px);
+    user-select:none;
+    pointer-events:none;
+    transition:.4s;
+}
+
+/* Dark overlay */
+.coming-overlay{
+    position:absolute;
+    inset:0;
+    z-index:100;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    background:rgba(12,26,58,.35);
+    backdrop-filter:blur(8px);
+}
+
+/* Heading */
+.coming-overlay h2{
+    color:#fff;
+    font-size:42px;
+    font-weight:800;
+    margin:18px 0 10px;
+    text-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+/* Description */
+.coming-overlay p{
+    color:#f5f5f5;
+    font-size:18px;
+    line-height:1.6;
+    max-width:260px;
+}
+
+/* Decorative lines */
+.coming-line{
+    width:140px;
+    height:2px;
+    background:#FEB512;
+    position:relative;
+}
+
+.coming-line::after{
+    content:"★";
+    position:absolute;
+    left:50%;
+    top:-14px;
+    transform:translateX(-50%);
+    color:#FEB512;
+    font-size:20px;
+    background:transparent;
+}
+
+/* Optional hover effect */
+.coming-soon:hover .coming-overlay{
+    backdrop-filter:blur(10px);
+}

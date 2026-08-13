@@ -13,7 +13,7 @@
     opacity:0;
     visibility:hidden;
     transition:.35s;
-    z-index:9999;
+    z-index:99999;
 }
 
 .fleet-modal.show{
@@ -68,8 +68,25 @@
 ====================================== */
 
 .fleet-close{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #eef3ff;
+    color: #123A88;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    z-index: 99;
+}
 
-
+.fleet-close ion-icon{
+    font-size: 26px;
 }
 
 .fleet-close:hover{
@@ -398,41 +415,7 @@
    WHATSAPP BUTTON
 ====================================== */
 
-.whatsapp-btn{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:10px;
-
-    width:100%;
-
-    padding:14px;
-
-    margin-top:22px;
-
-    border-radius:12px;
-
-    text-decoration:none;
-
-    color:#fff;
-
-    background:#25D366;
-
-    font-weight:700;
-
-    transition:.3s;
-
-}
-
-.whatsapp-btn:hover{
-
-    background:#128C7E;
-
-}
+/* whatsapp-btn defined below in the premium card section */
 
 /* ======================================
    MOBILE
@@ -463,6 +446,75 @@
 .modal-car-card img{
 
     height:140px;
+
+}
+
+    .fleet-tabs{
+
+        grid-template-columns:1fr;
+
+        gap:10px;
+
+        padding:8px;
+
+        border-radius:16px;
+
+        margin:25px 0;
+
+    }
+
+    .fleet-tab{
+
+        width:100%;
+
+        justify-content:center;
+
+        padding:16px;
+
+        font-size:16px;
+
+        border-radius:12px;
+
+    }
+
+    .fleet-tab ion-icon{
+
+        font-size:20px;
+
+    }
+
+
+.fleet-grid-modal{
+
+    grid-template-columns:1fr;
+
+}
+
+.car-image{
+
+    height:170px;
+
+}
+
+.car-image img{
+
+    width:210px;
+
+}
+
+.car-title-row{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+}
+
+.car-specs{
+
+    grid-template-columns:repeat(2,1fr);
 
 }
 
@@ -821,7 +873,11 @@
 
     text-decoration:none;
 
-    background:#25D366;
+    background:linear-gradient(
+        90deg,
+        #123A88,
+        #1B5FE3
+    );
 
     color:#fff;
 
@@ -835,7 +891,8 @@
 
 .whatsapp-btn:hover{
 
-    background:#128C7E;
+    background: #FEB512;
+    color:#123A88;
 
     transform:translateY(-3px);
 
@@ -845,43 +902,6 @@
         MOBILE
 ==================================================*/
 
-@media(max-width:768px){
-
-.fleet-grid-modal{
-
-    grid-template-columns:1fr;
-
-}
-
-.car-image{
-
-    height:170px;
-
-}
-
-.car-image img{
-
-    width:210px;
-
-}
-
-.car-title-row{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-
-    gap:10px;
-
-}
-
-.car-specs{
-
-    grid-template-columns:repeat(2,1fr);
-
-}
-
-}
 
 
 /*==================================================
@@ -1154,66 +1174,101 @@
 
 
 /*=============================
-TAB BAR
+        TAB BAR
 ==============================*/
 
 .fleet-tabs{
 
-    display:flex;
-    justify-content:center;
-    gap:18px;
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    width:100%;
+
+    gap:12px;
 
     margin:35px 0;
+
+    padding:8px;
+
+    background:#f4f7ff;
+
+    border:2px solid #d7e3ff;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
 
 }
 
 .fleet-tab{
 
     display:flex;
+
     align-items:center;
+
+    justify-content:center;
+
     gap:10px;
 
-    padding:14px 28px;
+    width:100%;
 
-    border:none;
+    padding:18px 20px;
 
-    border-radius:50px;
+    border:2px solid transparent;
 
-    background:#f4f7ff;
+    border-radius:14px;
+
+    background:#fff;
 
     color:#1746b5;
 
-    font-size:16px;
+    font-size:17px;
 
     font-weight:700;
 
     cursor:pointer;
 
-    transition:.35s;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:all .35s ease;
 
 }
 
 .fleet-tab ion-icon{
 
-    font-size:20px;
+    font-size:22px;
 
 }
 
 .fleet-tab:hover{
 
-    transform:translateY(-3px);
+    background:rgba(13,75,207,.08);
 
 }
 
 .fleet-tab.active{
-    background: linear-gradient(90deg, #0d4bcf, #17317f);
-    color: #FEB512 !important;
+
+    background:linear-gradient(90deg,#0d4bcf,#17317f);
+
+    color:#FEB512;
+
+    border:2px solid #FEB512;
+
+    box-shadow:0 8px 20px rgba(13,75,207,.35);
+
 }
 
 .fleet-tab.active ion-icon{
-    color: #FEB512 !important;
+
+    color:#FEB512;
+
+}
+
+.fleet-tab:hover:not(.active){
+
+    border-color:#0d4bcf;
+
+    background:#eef4ff;
+
 }
 
 
@@ -1225,7 +1280,6 @@ TAB CONTENT
 .fleet-tab-content{
 
     display:none;
-    color: #FEB512;
 
 }
 
@@ -1235,3 +1289,87 @@ TAB CONTENT
 
 }
 
+/*=========================================
+        TAB BAR RESPONSIVE
+=========================================*/
+
+/* Large Tablet */
+@media (max-width:992px){
+
+    .fleet-tabs{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:10px;
+
+        padding:6px;
+
+    }
+
+    .fleet-tab{
+
+        padding:16px 18px;
+
+        font-size:16px;
+
+    }
+
+    .fleet-tab ion-icon{
+
+        font-size:20px;
+
+    }
+
+}
+
+
+/* Small Mobile */
+@media (max-width:576px){
+
+    .fleet-tabs{
+
+        padding:6px;
+
+        gap:8px;
+
+    }
+
+    .fleet-tab{
+
+        padding:14px 12px;
+
+        font-size:15px;
+
+        gap:8px;
+
+    }
+
+    .fleet-tab ion-icon{
+
+        font-size:18px;
+
+    }
+
+}
+
+
+/* Extra Small */
+@media (max-width:400px){
+
+    .fleet-tab{
+
+        font-size:14px;
+
+        padding:12px 10px;
+
+        gap:6px;
+
+    }
+
+    .fleet-tab ion-icon{
+
+        font-size:17px;
+
+    }
+
+}

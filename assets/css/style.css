@@ -11,11 +11,12 @@
 @import url("utilities.css");   /* Container, buttons, typography */
 @import url("header.css");      /* Header & navigation drawer     */
 @import url("hero.css");        /* Hero / banner section          */
-@import url("buses.css");       /* Buses Fleet Section (Non-AC, AC, Volvo) */
-@import url("cars.css");       /* Fleet / vehicles section       */
-@import url("popular.css");     /* Popular destinations           */
-@import url("package.css");     /* Tour packages                  */
-@import url("gallery.css");     /* Photo gallery                  */
+@import url("buses/buses.css");       /* Buses Fleet Section (Non-AC, AC, Volvo) */
+@import url("buses/bus-modal.css");  /* Buses Fleet Modal (Non-AC, AC, Volvo) */
+@import url("cars/cars.css");       /* Fleet / vehicles section       */
+@import url("cars/cars-modal.css");  /* Cars Fleet Modal (Sedan, SUV, Luxury) */
+@import url("coming.css");      /* Coming soon overlay            */
 @import url("cta.css");         /* Call-to-action banner          */
 @import url("footer.css");      /* Footer top + bottom            */
 @import url("responsive.css");  /* Global breakpoints & overrides */
+@import url("about/about.css");      /* About page                     */

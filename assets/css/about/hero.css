@@ -1,0 +1,199 @@
+/*==============================
+    ABOUT HERO
+==============================*/
+
+.about-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 550px;
+    background: url("../../images/about/about-banner.jpg") center center/cover
+        no-repeat;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.about-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(5, 24, 58, 0.88),
+        rgba(9, 45, 109, 0.65)
+    );
+}
+
+.about-hero .container {
+    position: relative;
+    z-index: 10;
+}
+
+.hero-content {
+    max-width: 700px;
+    color: #fff;
+    animation: heroFade 1s ease;
+}
+
+.hero-content span {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    color: #FEB512;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-size: 65px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    max-width: 620px;
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255,255,255,.9);
+    margin-bottom: 35px;
+}
+
+.breadcrumb{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.breadcrumb a{
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.breadcrumb a:hover{
+    color:#FEB512;
+}
+
+.breadcrumb span{
+    color:#FEB512;
+    font-weight:600;
+}
+
+.breadcrumb i{
+    font-size:12px;
+    color:#fff;
+}
+
+/* Decorative Blur Circle */
+
+.about-hero::before{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:rgba(254,181,18,.18);
+    filter:blur(120px);
+    top:-140px;
+    right:-100px;
+}
+
+.about-hero::after{
+    content:"";
+    position:absolute;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:rgba(255,255,255,.10);
+    filter:blur(80px);
+    bottom:-80px;
+    left:-80px;
+}
+
+@keyframes heroFade{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/*==============================
+    RESPONSIVE
+==============================*/
+
+@media (max-width:992px){
+
+    .about-hero{
+
+        height:60vh;
+
+        min-height:460px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:52px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .about-hero{
+
+        height:55vh;
+
+        min-height:400px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:38px;
+
+    }
+
+    .hero-content p{
+
+        font-size:16px;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    .about-hero{
+
+        min-height:360px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:30px;
+
+    }
+
+    .hero-content span{
+
+        font-size:13px;
+
+        padding:8px 16px;
+
+    }
+
+}
