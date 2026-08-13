@@ -31,6 +31,21 @@ html {
   scroll-behavior: smooth;
 }
 
-body { background: var(--white); overflow-x: hidden; }
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role="button"] {
+    cursor: none;
+  }
+}
+
+body {
+  background: var(--white);
+  overflow-x: hidden;
+}
 
 img { max-width: 100%; height: auto; }

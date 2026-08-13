@@ -1,0 +1,406 @@
+/*-----------------------------------*\
+ * #enhanced-animations.css — Section-Specific Animations
+ * Premium animation effects for hero, cards, and interactive elements
+\*-----------------------------------*/
+
+:root {
+  --cursor-size: 10px;
+  --cursor-ring-size: 42px;
+  --cursor-color: rgba(255, 255, 255, 0.9);
+  --cursor-ring-color: rgba(94, 158, 255, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  body * {
+    cursor: none;
+  }
+}
+
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cursor-dot {
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  background: var(--cursor-color);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.8);
+}
+
+.cursor-ring {
+  width: var(--cursor-ring-size);
+  height: var(--cursor-ring-size);
+  border: 1px solid var(--cursor-ring-color);
+  background: rgba(94, 158, 255, 0.08);
+  animation: ringPulse 1.6s ease-out infinite;
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.cursor-hover .cursor-ring {
+  width: 58px;
+  height: 58px;
+  border-color: rgba(255, 206, 86, 0.95);
+  box-shadow: 0 0 22px rgba(255, 206, 86, 0.5);
+}
+
+@keyframes ringPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.16);
+    opacity: 0.6;
+  }
+}
+
+.cursor-car {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+  width: 72px;
+  height: 42px;
+  background-image: url('../../logo.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: transform 0.2s ease, filter 0.2s ease, width 0.2s ease, height 0.2s ease;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+body.cursor-hover .cursor-car {
+  transform: translate(-50%, -50%) scale(1.18) rotate(-8deg);
+  filter: drop-shadow(0 0 12px rgba(255, 206, 86, 0.9));
+}
+
+/* ==========================================
+   GLOBAL ANIMATION BASE
+========================================== */
+
+header,
+.header,
+.header-bottom,
+.navbar,
+.footer,
+section,
+.section,
+.btn,
+button,
+.nav-item,
+[class*="card"],
+.feature-item,
+.stat-item,
+.testimonial-card,
+.gallery-item,
+.form-group,
+.footer-link,
+.footer-bottom-link {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, opacity 0.35s ease, border-color 0.35s ease;
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+========================================== */
+
+.header {
+  animation: fadeInDown 0.8s ease-out both;
+}
+
+.nav-item {
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--white);
+  transition: width 0.35s ease;
+}
+
+.nav-item:hover::after,
+.nav-item:focus::after {
+  width: 100%;
+}
+
+.nav-item:hover,
+.nav-item:focus {
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   HERO SECTION
+========================================== */
+
+.hero-title {
+  animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hero-text {
+  animation: fadeInUp 0.9s ease-out 0.2s both;
+}
+
+.btn-group {
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.hero-video {
+  animation: zoomIn 1.2s ease-out both;
+}
+
+.scroll-indicator,
+[data-scroll-indicator] {
+  animation: float 3.2s ease-in-out infinite;
+}
+
+/* ==========================================
+   CARD ANIMATIONS
+========================================== */
+
+[class*="card"],
+.feature-item,
+.stat-item,
+.testimonial-card,
+.gallery-item {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+[class*="card"]:nth-child(2),
+.feature-item:nth-child(2),
+.stat-item:nth-child(2),
+.testimonial-card:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+[class*="card"]:nth-child(3),
+.feature-item:nth-child(3),
+.stat-item:nth-child(3),
+.testimonial-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+[class*="card"]:nth-child(4),
+.feature-item:nth-child(4),
+.stat-item:nth-child(4),
+.testimonial-card:nth-child(4) {
+  animation-delay: 0.28s;
+}
+
+.cars-card,
+.bus-card,
+.feature-item,
+.stat-item,
+.testimonial-card {
+  transform: translateY(18px);
+}
+
+.cars-card:hover,
+.bus-card:hover,
+[class*="card"]:hover,
+.feature-item:hover,
+.stat-item:hover,
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(52, 152, 219, 0.2);
+}
+
+.cars-image img,
+.bus-image img,
+.card-image img,
+.gallery-item img,
+.feature-item img {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cars-card:hover .cars-image img,
+.bus-card:hover .bus-image img,
+[class*="card"]:hover .card-image img,
+.gallery-item:hover img,
+.feature-item:hover img {
+  transform: scale(1.08);
+}
+
+/* ==========================================
+   BUTTON ANIMATIONS
+========================================== */
+
+.btn,
+button,
+input[type="button"],
+input[type="submit"] {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.btn::before,
+button::before {
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before,
+button:hover::before {
+  width: 240px;
+  height: 240px;
+}
+
+.btn:hover,
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================
+   SECTION TITLE ANIMATIONS
+========================================== */
+
+.section-title,
+.section-subtitle,
+[data-section-title],
+[data-section-subtitle] {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.section-subtitle,
+[data-section-subtitle] {
+  animation-delay: 0.12s;
+}
+
+/* ==========================================
+   FORM ANIMATIONS
+========================================== */
+
+.form-group {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.form-group:nth-child(2) { animation-delay: 0.1s; }
+.form-group:nth-child(3) { animation-delay: 0.2s; }
+.form-group:nth-child(4) { animation-delay: 0.3s; }
+.form-group:nth-child(5) { animation-delay: 0.4s; }
+
+.form-input,
+.form-textarea {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--blue-ncs);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.18);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   FOOTER ANIMATIONS
+========================================== */
+
+.footer {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.footer-link,
+.footer-bottom-link,
+.footer a {
+  transition: transform 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+
+.footer-link:hover,
+.footer-bottom-link:hover,
+.footer a:hover {
+  color: var(--white);
+  transform: translateX(4px);
+}
+
+/* ==========================================
+   GLOBAL HOVER SHADOWS FOR MAIN SECTIONS
+========================================== */
+
+.hero,
+.cars,
+.buses,
+.about,
+.contact,
+.footer,
+.cta,
+.stats {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================
+   CURSOR HOVER STATES FOR INTERACTIVE ELEMENTS
+========================================== */
+
+a:hover,
+button:hover,
+.nav-item:hover,
+.footer-link:hover,
+.cars-card:hover,
+.bus-card:hover,
+.feature-item:hover,
+.stat-item:hover,
+.testimonial-card:hover {
+  will-change: transform, box-shadow;
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+========================================== */
+
+@media (max-width: 768px) {
+  .cars-card:hover,
+  .bus-card:hover,
+  .feature-item:hover,
+  .stat-item:hover,
+  .testimonial-card:hover {
+    transform: translateY(-6px) scale(1.01);
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

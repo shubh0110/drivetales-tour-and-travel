@@ -1,0 +1,548 @@
+<!-- ============================================================
+     ANIMATION IMPLEMENTATION EXAMPLES
+     Ready-to-use HTML with all animation patterns
+     Copy sections and adapt to your components
+     ============================================================ -->
+
+<!-- ============================================================
+     EXAMPLE 1: HERO SECTION (Complete)
+     ============================================================ -->
+<section class="hero">
+  <video class="hero-video" autoplay muted loop>
+    <source src="./assets/videos/hero.mp4" type="video/mp4" />
+  </video>
+
+  <div class="container">
+    <!-- Hero Title with fade-in-down -->
+    <h1 class="hero-title animate-fade-in-down">
+      Welcome to DriveTales Tours & Travels
+    </h1>
+
+    <!-- Hero Description with fade-in-up and delay -->
+    <p class="hero-text animate-fade-in-up delay-200">
+      Experience the ultimate journey with our premium fleet of vehicles
+    </p>
+
+    <!-- Button Group with animation and delay -->
+    <div class="btn-group animate-fade-in-up delay-400">
+      <button class="btn hover-scale">
+        Book Your Journey
+      </button>
+      <button class="btn hover-scale delay-100">
+        Explore Fleet
+      </button>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator animate-float delay-600">
+      <p>↓</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 2: CARS FLEET SECTION (With Scroll Animations)
+     ============================================================ -->
+<section class="cars">
+  <div class="container">
+    <!-- Section Title -->
+    <h2 class="section-title scroll-animate" data-animation="slide-up">
+      Our Car Fleet
+    </h2>
+
+    <!-- Section Subtitle -->
+    <p class="section-subtitle scroll-animate delay-100" data-animation="slide-up">
+      Choose from our premium selection of vehicles
+    </p>
+
+    <!-- Cars Grid with Staggered Animation -->
+    <div class="cars-grid">
+      <!-- Car Card 1 -->
+      <div class="cars-card hover-lift scroll-animate delay-100" data-animation="scale">
+        <div class="cars-image">
+          <img src="./assets/images/sedan/sedan-1.jpg" alt="Sedan" />
+        </div>
+        <div class="cars-content">
+          <h3>Premium Sedan</h3>
+          <p>Luxury and comfort for up to 4 passengers</p>
+          <ul class="car-features">
+            <li>✓ Air Conditioning</li>
+            <li>✓ Premium Sound System</li>
+            <li>✓ Leather Seats</li>
+          </ul>
+          <button class="btn hover-scale-sm">Book Now</button>
+        </div>
+      </div>
+
+      <!-- Car Card 2 -->
+      <div class="cars-card hover-lift scroll-animate delay-200" data-animation="scale">
+        <div class="cars-image">
+          <img src="./assets/images/suv/suv-1.jpg" alt="SUV" />
+        </div>
+        <div class="cars-content">
+          <h3>Luxury SUV</h3>
+          <p>Space and comfort for up to 6 passengers</p>
+          <ul class="car-features">
+            <li>✓ 4WD Capability</li>
+            <li>✓ Advanced Safety Features</li>
+            <li>✓ Spacious Interior</li>
+          </ul>
+          <button class="btn hover-scale-sm">Book Now</button>
+        </div>
+      </div>
+
+      <!-- Car Card 3 -->
+      <div class="cars-card hover-lift scroll-animate delay-300" data-animation="scale">
+        <div class="cars-image">
+          <img src="./assets/images/suv/suv-2.jpg" alt="Premium SUV" />
+        </div>
+        <div class="cars-content">
+          <h3>Premium Luxury SUV</h3>
+          <p>The ultimate in luxury and performance</p>
+          <ul class="car-features">
+            <li>✓ Executive Interior</li>
+            <li>✓ Climate Control</li>
+            <li>✓ Premium Navigation</li>
+          </ul>
+          <button class="btn hover-scale-sm">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 3: ABOUT SECTION (With Parallax)
+     ============================================================ -->
+<section class="about">
+  <div class="container">
+    <div class="about-content scroll-animate" data-animation="slide-right">
+      <h2 class="animate-fade-in-down">About DriveTales</h2>
+      
+      <p class="animate-fade-in-up delay-200" data-text-reveal="word">
+        We've been providing premium travel experiences for over a decade
+      </p>
+
+      <div class="about-points">
+        <div class="point scroll-animate delay-300" data-animation="slide-up">
+          <h4>Premium Service</h4>
+          <p>Exceptional service at every step of your journey</p>
+        </div>
+
+        <div class="point scroll-animate delay-400" data-animation="slide-up">
+          <h4>Modern Fleet</h4>
+          <p>Newest vehicles with latest technology</p>
+        </div>
+
+        <div class="point scroll-animate delay-500" data-animation="slide-up">
+          <h4>Expert Team</h4>
+          <p>Professional drivers and support staff</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parallax Background Image -->
+    <div class="about-image-container">
+      <img src="./assets/images/about/about-bg.jpg" 
+           alt="About"
+           data-parallax="0.3"
+           class="scroll-animate delay-100"
+           data-animation="zoom" />
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 4: STATS SECTION (With Counter Animations)
+     ============================================================ -->
+<section class="stats scroll-animate" data-animation="fade">
+  <div class="container">
+    <h2 class="section-title animate-fade-in-down">Our Achievements</h2>
+
+    <div class="stats-grid">
+      <!-- Stat 1 -->
+      <div class="stat-item scroll-animate delay-100" data-animation="scale">
+        <div class="stat-icon">🚗</div>
+        <div class="stat-number" data-counter="500" data-duration="2000">0</div>
+        <p class="stat-label">Happy Customers</p>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="stat-item scroll-animate delay-200" data-animation="scale">
+        <div class="stat-icon">🛣️</div>
+        <div class="stat-number" data-counter="50" data-duration="2000">0</div>
+        <p class="stat-label">Vehicles in Fleet</p>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="stat-item scroll-animate delay-300" data-animation="scale">
+        <div class="stat-icon">🗺️</div>
+        <div class="stat-number" data-counter="100" data-duration="2000">0</div>
+        <p class="stat-label">Routes Covered</p>
+      </div>
+
+      <!-- Stat 4 -->
+      <div class="stat-item scroll-animate delay-400" data-animation="scale">
+        <div class="stat-icon">⭐</div>
+        <div class="stat-number" data-counter="4.8" data-duration="2000">0</div>
+        <p class="stat-label">Average Rating</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 5: FEATURES SECTION (With Staggered Items)
+     ============================================================ -->
+<section class="features">
+  <div class="container">
+    <h2 class="section-title scroll-animate" data-animation="slide-up">
+      Why Choose Us
+    </h2>
+
+    <div class="stagger-container">
+      <!-- Feature 1 -->
+      <div class="stagger-item hover-glow">
+        <div class="feature-icon animate-float">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Safety First</h3>
+        <p>All our vehicles undergo regular maintenance and safety checks</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="stagger-item hover-glow">
+        <div class="feature-icon animate-float delay-200">
+          <i class="fas fa-clock"></i>
+        </div>
+        <h3>On Time, Always</h3>
+        <p>Punctuality is our commitment to you</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="stagger-item hover-glow">
+        <div class="feature-icon animate-float delay-400">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Customer support available round the clock</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="stagger-item hover-glow">
+        <div class="feature-icon animate-float delay-600">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3>Pan India Coverage</h3>
+        <p>We operate across all major cities and routes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 6: CONTACT FORM (With Form Animations)
+     ============================================================ -->
+<section class="contact">
+  <div class="container">
+    <h2 class="section-title scroll-animate" data-animation="slide-up">
+      Get In Touch
+    </h2>
+
+    <form class="contact-form" id="contactForm">
+      <!-- Name Field -->
+      <div class="form-group animate-fade-in-up delay-100">
+        <label for="name">Your Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          class="form-input" 
+          placeholder="Enter your name"
+          required />
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-group animate-fade-in-up delay-200">
+        <label for="email">Email Address</label>
+        <input 
+          type="email" 
+          id="email" 
+          class="form-input" 
+          placeholder="your@email.com"
+          required />
+      </div>
+
+      <!-- Phone Field -->
+      <div class="form-group animate-fade-in-up delay-300">
+        <label for="phone">Phone Number</label>
+        <input 
+          type="tel" 
+          id="phone" 
+          class="form-input" 
+          placeholder="Your phone number"
+          required />
+      </div>
+
+      <!-- Message Field -->
+      <div class="form-group animate-fade-in-up delay-400">
+        <label for="message">Message</label>
+        <textarea 
+          id="message" 
+          class="form-textarea" 
+          placeholder="Tell us about your travel needs"
+          rows="5"
+          required></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-group animate-fade-in-up delay-500">
+        <button type="submit" class="btn btn-primary hover-scale">
+          Send Message
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 7: TESTIMONIALS (Grid with Scroll Animation)
+     ============================================================ -->
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title scroll-animate" data-animation="slide-up">
+      What Our Customers Say
+    </h2>
+
+    <div class="testimonials-grid">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card hover-lift scroll-animate delay-100" data-animation="scale">
+        <div class="testimonial-rating">
+          ⭐⭐⭐⭐⭐
+        </div>
+        <p class="testimonial-text">
+          "Amazing experience! The service was exceptional and the vehicles were pristine."
+        </p>
+        <div class="testimonial-author">
+          <h4>John Smith</h4>
+          <p>Corporate Client</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card hover-lift scroll-animate delay-200" data-animation="scale">
+        <div class="testimonial-rating">
+          ⭐⭐⭐⭐⭐
+        </div>
+        <p class="testimonial-text">
+          "Professional drivers and comfortable rides. Highly recommended for any journey."
+        </p>
+        <div class="testimonial-author">
+          <h4>Sarah Johnson</h4>
+          <p>Travel Enthusiast</p>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card hover-lift scroll-animate delay-300" data-animation="scale">
+        <div class="testimonial-rating">
+          ⭐⭐⭐⭐⭐
+        </div>
+        <p class="testimonial-text">
+          "Best travel partner! Reliable, safe, and always on time. 10/10 would book again."
+        </p>
+        <div class="testimonial-author">
+          <h4>Mike Williams</h4>
+          <p>Regular Customer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 8: BUSES SECTION (Horizontal Cards)
+     ============================================================ -->
+<section class="buses">
+  <div class="container">
+    <h2 class="section-title scroll-animate" data-animation="slide-up">
+      Luxury Bus Fleet
+    </h2>
+
+    <div class="buses-grid">
+      <!-- Non-AC Bus -->
+      <div class="bus-card hover-lift scroll-animate delay-100" data-animation="fade">
+        <div class="bus-image">
+          <i class="fas fa-bus"></i>
+        </div>
+        <div class="bus-content">
+          <h3>Comfort Bus</h3>
+          <p>Affordable and reliable for group travel</p>
+          <button class="btn hover-scale-sm">View Details</button>
+        </div>
+      </div>
+
+      <!-- AC Bus -->
+      <div class="bus-card hover-lift scroll-animate delay-200" data-animation="fade">
+        <div class="bus-image">
+          <i class="fas fa-bus"></i>
+        </div>
+        <div class="bus-content">
+          <h3>Premium AC Bus</h3>
+          <p>Air conditioned comfort for long journeys</p>
+          <button class="btn hover-scale-sm">View Details</button>
+        </div>
+      </div>
+
+      <!-- Volvo Bus -->
+      <div class="bus-card hover-lift scroll-animate delay-300" data-animation="fade">
+        <div class="bus-image">
+          <i class="fas fa-bus"></i>
+        </div>
+        <div class="bus-content">
+          <h3>Volvo Luxury</h3>
+          <p>Ultimate luxury and comfort in every journey</p>
+          <button class="btn hover-scale-sm">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 9: CTA SECTION (Call-to-Action with Animation)
+     ============================================================ -->
+<section class="cta">
+  <div class="container">
+    <h2 class="cta-title animate-fade-in-down delay-100">
+      Ready to Book Your Journey?
+    </h2>
+
+    <p class="cta-text animate-fade-in-up delay-200">
+      Join thousands of satisfied customers. Book now and enjoy premium travel experience.
+    </p>
+
+    <div class="cta-buttons animate-fade-in-up delay-300">
+      <button class="btn btn-primary hover-scale">
+        Book Now
+      </button>
+      <button class="btn btn-secondary hover-scale delay-100">
+        Get Quote
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXAMPLE 10: FOOTER (With Scroll Animation)
+     ============================================================ -->
+<footer class="footer scroll-animate" data-animation="fade">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- About Footer -->
+      <div class="footer-section animate-fade-in-up delay-100">
+        <h4>About DriveTales</h4>
+        <p>Premium travel experiences since 2012</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-section animate-fade-in-up delay-200">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#" class="hover-underline">Home</a></li>
+          <li><a href="#" class="hover-underline">About Us</a></li>
+          <li><a href="#" class="hover-underline">Fleet</a></li>
+          <li><a href="#" class="hover-underline">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-section animate-fade-in-up delay-300">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#" class="hover-underline">Car Rental</a></li>
+          <li><a href="#" class="hover-underline">Bus Charter</a></li>
+          <li><a href="#" class="hover-underline">Group Tours</a></li>
+          <li><a href="#" class="hover-underline">Corporate Travel</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section animate-fade-in-up delay-400">
+        <h4>Contact Us</h4>
+        <p>📞 +91-XXXX-XXX-XXX</p>
+        <p>📧 info@drivetales.com</p>
+        <p>📍 City, State, India</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom animate-fade-in-up delay-500">
+      <p>&copy; 2024 DriveTales Tours & Travels. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     ANIMATION PATTERNS LEGEND
+     
+     CLASS PATTERNS:
+     - .animate-fade-in-down ........... Fade + slide down
+     - .animate-fade-in-up ............ Fade + slide up
+     - .animate-fade-in-left .......... Fade + slide left
+     - .animate-fade-in-right ........ Fade + slide right
+     - .animate-scale-in .............. Scale up
+     - .animate-scale-in-up ........... Scale + bounce
+     - .animate-zoom-in ............... Zoom in
+     - .animate-rotate-in ............ Rotate in
+     - .animate-float ................. Gentle floating
+     - .animate-pulse ................. Pulsing opacity
+     - .animate-glow .................. Glowing effect
+     
+     DELAY PATTERNS:
+     - .delay-100 through .delay-1000 . Staggered delays
+     
+     HOVER PATTERNS:
+     - .hover-scale ................... Scale on hover
+     - .hover-lift .................... Lift with shadow
+     - .hover-glow .................... Glow on hover
+     - .hover-fade .................... Fade on hover
+     - .hover-underline ............... Underline animation
+     
+     SCROLL PATTERNS:
+     - .scroll-animate ................ Triggers on scroll
+     - [data-animation="fade"] ........ Fade only
+     - [data-animation="slide-up"] ... Slide up
+     - [data-animation="scale"] ...... Scale in
+     - [data-animation="zoom"] ....... Zoom in
+     
+     SPECIAL ATTRIBUTES:
+     - [data-parallax="0.3"] ......... Parallax scrolling
+     - [data-text-reveal="word"] ..... Text reveal by word
+     - [data-counter="500"] .......... Counter animation
+     
+     STAGGER PATTERNS:
+     - .stagger-container ............ Auto-stagger children
+     - .stagger-item ................. Individual items
+     
+     ============================================================ -->
+
+<!-- ============================================================
+     USAGE NOTES:
+     
+     1. Animations are AUTOMATIC - no JavaScript needed!
+     
+     2. Scroll animations trigger when element enters viewport
+     
+     3. Page load animations happen on page load
+     
+     4. Hover effects work on all interactive elements
+     
+     5. Combine multiple classes for complex effects:
+        Example: class="animate-fade-in-up delay-200 hover-scale"
+     
+     6. Mobile automatically gets lighter animations
+     
+     7. All animations respect prefers-reduced-motion setting
+     
+     8. For custom animation speeds, edit variables.css
+     
+     ============================================================ -->

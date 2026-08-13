@@ -7,6 +7,9 @@
 
 @import url("variables.css");   /* CSS custom properties          */
 @import url("reset.css");       /* Box-sizing, element resets     */
+@import url("animations.css");  /* Premium animations & effects   */
+@import url("enhanced-animations.css"); /* Section-specific animations */
+@import url("animation-helpers.css");   /* Animation utility classes   */
 @import url("background.css");  /* Animated star/nebula bg        */
 @import url("utilities.css");   /* Container, buttons, typography */
 @import url("header.css");      /* Header & navigation drawer     */
