@@ -75,7 +75,7 @@ loadComponent("hero-section", "./components/hero/hero.html");
 loadComponent("cars-section", "./components/cars/cars.html");
 loadComponent("buses-section", "./components/buses/buses.html");
 loadComponent("about", "./components/about/about.html");
-loadComponent("hero", "./components/about/hero.html");
+// loadComponent("hero", "./components/about/hero.html");
 loadComponent("about-company", "./components/about/about-company.html");
 loadComponent("founder", "./components/about/founder.html");
 loadComponent("why-choose", "./components/about/why-choose.html");
